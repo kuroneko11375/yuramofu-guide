@@ -178,24 +178,57 @@ export const guides = {
             '手勢連動の耳「同方向／反対方向」が一部のアバターで逆になっていた問題を修正',
             '軸・方向の選択肢に、アバターでの実際の動きを表示',
           ]],
-          ['1.3.0', '', [
+          ['1.3.0', '2026-10-22', [
             '新スタイル「きまぐれ」を追加',
             '左右同期時に、片耳だけ動く割合を設定可能に',
             '尻尾の「振れの中心」と「揺れの緩急」を追加',
             '耳の向き変え・ぶるっと振るの頻度を調整可能に',
           ]],
-          ['1.2.2', '', [
+          ['1.2.2', '2026-10-22', [
             '2組目の切り替えを各タブの上部に移動',
             'F2〜F8 のボタンに各スロットの反応を表示',
             '状態欄をタブごとの表示に整理',
           ]],
-          ['1.2.1', '', [
+          ['1.2.1', '2026-10-01', [
             'プレビューの負荷を軽減',
             '任意の2組目の耳・尻尾に対応',
           ]],
-          ['1.2.0', '', [
+          ['1.2.0', '2026-09-27', [
             '待機／手勢連動の UI を整理',
             '待機尻尾の速度ダイヤルを追加',
+          ]],
+          ['1.1.4', '', [
+            'プレビューが動かないとき、その理由を表示',
+            '診断情報をクリップボードへコピーする機能を追加',
+            '更新のお知らせ機能を追加（1 日 1 回、最新バージョン番号のみ確認）',
+          ]],
+          ['1.1.3', '', [
+            '生成方式に「物理まかせ」を追加',
+            '耳の「向き変え」「ぶるっと振る」を追加',
+            '手勢連動に「他の手勢へコピー」を追加',
+            '生成前に書き出すファイルと FX レイヤーを一覧で確認',
+            'パラメータの型違い・PhysBone 制御下の警告を追加',
+          ]],
+          ['1.1.2', '', [
+            '画面構成を整理し、詳細設定と出力設定を折りたたみ式に',
+            '生成状態や設定不足を確認できるステータス表示を追加',
+            'Gesture Link の「Mix」を「部位別」に変更',
+          ]],
+          ['1.1.1', '', [
+            '生成済みデータを更新する「更新」ボタンを追加',
+            '0～100% ポーズのプレビュー操作を改善',
+            '耳の左右設定に「同期 / ミラー」を追加',
+          ]],
+          ['1.1.0', '', [
+            '表情連動 UI を F2～F8 スロット形式に整理',
+            'アンインストール時に生成 Animation Clip の削除確認を追加',
+          ]],
+          ['1.0.x', '', [
+            '耳・尻尾の Idle Animation 生成',
+            'リアルタイムプレビュー',
+            'FX Controller への自動追加',
+            'VRC Gesture 連動',
+            'Uninstall from Active Avatar',
           ]],
         ]],
       ]},
@@ -340,24 +373,57 @@ export const guides = {
             'Fixed Same/Opposite ear poses being reversed on some avatars',
             'Axis and direction options now show the actual motion on the avatar',
           ]],
-          ['1.3.0', '', [
+          ['1.3.0', '2026-10-22', [
             'Added the Whimsical style',
             'Single-ear share for synced ears',
             'Added Swing Center and Tempo Variation for the tail',
             'Adjustable frequency for ear swivel and shake',
           ]],
-          ['1.2.2', '', [
+          ['1.2.2', '2026-10-22', [
             'The second-set switch moved to the top of each tab',
             'F2-F8 buttons show each slot\'s reaction',
             'The status bar shows each tab\'s own items',
           ]],
-          ['1.2.1', '', [
+          ['1.2.1', '2026-10-01', [
             'Lighter preview',
             'Optional second ear/tail set',
           ]],
-          ['1.2.0', '', [
+          ['1.2.0', '2026-09-27', [
             'Reorganised the Idle Motion / Gesture Link UI',
             'Added the idle tail speed dial',
+          ]],
+          ['1.1.4', '', [
+            'Shows why the preview is not running',
+            'Added Copy Diagnostics to the clipboard',
+            'Added the update notice (checks only the latest version number once a day)',
+          ]],
+          ['1.1.3', '', [
+            'Added the Physics-Friendly output mode',
+            'Added Ear Swivel and Ear Shake',
+            'Added Copy To... for gestures',
+            'A list of files and FX layers is shown before generating',
+            'Warnings for mismatched parameter types and PhysBone-driven bones',
+          ]],
+          ['1.1.2', '', [
+            'Reorganised the window with collapsible detail and output settings',
+            'Added a status display for output state and missing settings',
+            'Gesture Link \'Mix\' renamed to \'Per Part\'',
+          ]],
+          ['1.1.1', '', [
+            'Added the Update button for existing output',
+            'Improved the 0-100% pose preview',
+            'Added Sync / Mirror for the ears',
+          ]],
+          ['1.1.0', '', [
+            'Expression UI organised into F2-F8 slots',
+            'Uninstall asks before deleting generated Animation Clips',
+          ]],
+          ['1.0.x', '', [
+            'Ear and tail idle animation generation',
+            'Real-time preview',
+            'Automatic FX Controller setup',
+            'VRC Gesture link',
+            'Uninstall from Active Avatar',
           ]],
         ]],
       ]},
@@ -502,24 +568,57 @@ export const guides = {
             '修正手勢連動耳朵「同方向／反方向」在部分角色上相反的問題',
             '軸向與方向選項會標示該角色實際的動作',
           ]],
-          ['1.3.0', '', [
+          ['1.3.0', '2026-10-22', [
             '新增「隨性」風格',
             '左右同步時可設定單耳動作比例',
             '尾巴新增「擺動中心」與「擺動快慢變化」',
             '耳朵轉向與甩耳的頻率可調整',
           ]],
-          ['1.2.2', '', [
+          ['1.2.2', '2026-10-22', [
             '第二組的切換移到各分頁上方',
             'F2～F8 按鈕會顯示各槽的反應',
             '狀態列改為依分頁顯示',
           ]],
-          ['1.2.1', '', [
+          ['1.2.1', '2026-10-01', [
             '減輕預覽負載',
             '支援可選的第二組耳朵與尾巴',
           ]],
-          ['1.2.0', '', [
+          ['1.2.0', '2026-09-27', [
             '整理待機／手勢連動介面',
             '新增待機尾巴速度轉盤',
+          ]],
+          ['1.1.4', '', [
+            '預覽無法執行時會顯示原因',
+            '新增複製診斷資訊到剪貼簿',
+            '新增更新通知（每天一次，只確認最新版本號）',
+          ]],
+          ['1.1.3', '', [
+            '生成方式新增「交給物理」',
+            '新增耳朵「轉向」與「甩耳」',
+            '手勢連動新增「複製到其他手勢」',
+            '生成前會列出要寫入的檔案與 FX 圖層',
+            '新增參數型別不符、PhysBone 控制中的警告',
+          ]],
+          ['1.1.2', '', [
+            '整理畫面，詳細設定與輸出設定改為可折疊',
+            '新增顯示生成狀態與設定不足的狀態列',
+            'Gesture Link 的「Mix」改名為「部位分配」',
+          ]],
+          ['1.1.1', '', [
+            '新增更新已生成資料的「更新」按鈕',
+            '改善 0～100% 姿勢的預覽操作',
+            '耳朵左右新增「同步／鏡像」',
+          ]],
+          ['1.1.0', '', [
+            '表情連動介面整理為 F2～F8 槽位',
+            '卸載時會確認是否刪除生成的 Animation Clip',
+          ]],
+          ['1.0.x', '', [
+            '耳朵／尾巴待機動畫生成',
+            '即時預覽',
+            '自動加入 FX Controller',
+            'VRC 手勢連動',
+            'Uninstall from Active Avatar',
           ]],
         ]],
       ]},
