@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ゆらもふ 使用說明</title>
+<meta name="description" content="VRChat 耳朵與尾巴動畫生成工具「ゆらもふ」的使用說明。">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="ゆらもふ 使用說明">
+<meta property="og:description" content="VRChat 耳朵與尾巴動畫生成工具「ゆらもふ」的使用說明。">
+<meta property="og:image" content="https://kuroneko11375.github.io/yuramofu-guide/assets/v150/main.jpg">
+<meta property="og:url" content="https://kuroneko11375.github.io/yuramofu-guide/zh.html">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ja" href="https://kuroneko11375.github.io/yuramofu-guide/">
+<link rel="alternate" hreflang="en" href="https://kuroneko11375.github.io/yuramofu-guide/en.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://kuroneko11375.github.io/yuramofu-guide/zh.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
+<script src="gallery.js" defer></script>
+</head>
+<body id="top">
+<a class="skip" href="#main">跳到內容</a>
+<header class="bar"><a class="brand" href="#top"><img src="favicon.svg" alt="" width="28" height="28">ゆらもふ <span>v1.5.0</span></a><nav class="langs" aria-label="Language"><a href="index.html" hreflang="ja" lang="ja">日本語</a><a href="en.html" hreflang="en" lang="en">English</a><a href="zh.html" aria-current="page" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav></header>
+<div class="hero">
+<div class="hero-copy"><p class="eyebrow">YURAMOFU · USER GUIDE</p><h1>耳朵輕輕一抖，<br>尾巴悠悠一晃。</h1><p class="lead">ゆらもふ 是 Unity Editor 擴充工具，能用角色的耳朵與尾巴骨骼，做出待機動作和手勢連動動畫。先預覽確認再生成，還能自動把圖層加進 FX Controller。</p>
+<div class="buttons"><a class="btn" href="#start">開始設定</a><a class="btn ghost" href="https://booth.pm/ja/items/8229167" target="_blank" rel="noopener">BOOTH 商品頁 ↗</a></div>
+<p class="badge">對應產品版 v1.5.0</p></div>
+<a class="hero-art zoom" href="assets/v150/main.jpg" data-caption="ゆらもふ 主視覺"><img src="assets/v150/main.jpg" alt="ゆらもふ 主視覺" width="1024" height="1024" fetchpriority="high"></a></div>
+<div class="layout">
+<nav class="toc" aria-label="目錄"><p>目錄</p><ol><li><a href="#new"><span class="num">★</span>v1.5.0 新功能</a></li><li><a href="#start"><span class="num">01</span>開始使用</a></li><li><a href="#idle"><span class="num">02</span>待機擺動</a></li><li><a href="#gesture"><span class="num">03</span>手勢連動</a></li><li><a href="#set2"><span class="num">04</span>第二組耳朵與尾巴</a></li><li><a href="#output"><span class="num">05</span>生成與 FX</a></li><li><a href="#faq"><span class="num">06</span>常見問題</a></li><li><a href="#log"><span class="num">07</span>更新紀錄</a></li></ol></nav>
+<main id="main">
+<section id="new" class="sec new"><h2><span class="num">★</span>v1.5.0 新功能</h2><p class="lead">手勢連動的姿勢從輸入數字改成拖曳 2D 盤，和待機動作的搭配也重新整理過。</p>
+<div class="cards"><article class="card"><a class="zoom" href="assets/v150/ui_pad.png" data-caption="用 2D 盤決定姿勢"><img src="assets/v150/ui_pad.png" alt="用 2D 盤決定姿勢" width="810" height="436" loading="lazy" decoding="async"></a><h4>用 2D 盤決定姿勢</h4><p>耳朵拖「前／後・收／開」，尾巴拖「上下左右」就好；耳朵朝內／朝外用「轉向」轉盤調整。不論骨骼軸向怎麼擺，都會照角色看出去的方向動。</p></article><article class="card"><a class="zoom" href="assets/v150/ui_fx.png" data-caption="手勢中停止待機動作"><img src="assets/v150/ui_fx.png" alt="手勢中停止待機動作" width="810" height="184" loading="lazy" decoding="async"></a><h4>手勢中停止待機動作</h4><p>手勢動到的耳朵／尾巴，在手勢期間暫停待機動作，姿勢看起來更乾淨（預設開啟）。</p></article></div>
+<ul class="list"><li>手勢連動圖層改為 Additive。沒比手勢時，不會再蓋掉角色本身的尾巴擺動、AFK 動作和ゆらもふ的待機動作。</li><li>依扳機按壓程度（GestureWeight）變化改為只限 Fist，其他手勢一比出來就是 100% 姿勢。</li><li>舊的 XYZ 設定照樣能用，XYZ 直接輸入也還在「方向調整」裡。</li></ul>
+<p class="note warn">更新工具後，既有的手勢連動請按「生成」或「更新」換成新格式。</p></section>
+<section id="start" class="sec"><h2><span class="num">01</span>開始使用</h2><p class="note">環境需求：Unity 2022.3 LTS 以上（Windows 版 Unity Editor）。自動加入 FX、手勢連動與尾巴速度轉盤需要 VRChat SDK3 Avatars；沒有 SDK 也能生成基本的 Animation Clip。</p>
+<ol class="steps"><li><h4>匯入並開啟</h4><p>把 unitypackage 匯入專案，開啟選單 <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code>。建議先備份專案。</p></li><li><h4>指定角色並「自動偵測」</h4><p>把場景中的角色放進「角色」欄，按「自動偵測」。狀態列的耳朵、尾巴、FX 都打勾就準備好了。請確認偵測結果，有錯就到「骨骼與詳細調整」重新指定。</p></li><li><h4>選擇風格與強度</h4><p>在「待機擺動」分頁選擇動作風格和強度，再分別調整耳朵與尾巴。</p></li><li><h4>預覽確認</h4><p>按「預覽」在場景中確認動作。預覽中的修改，生成前不會寫入資產或 FX。</p></li><li><h4>生成／更新</h4><p>第一次按「生成」，之後要修改已生成的動作按「更新」。執行前會先列出要寫入的檔案和要新增或取代的圖層。</p></li></ol>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「待機擺動」分頁（畫面為日文介面）"><img src="assets/v150/ui_idle.png" alt="「待機擺動」分頁（畫面為日文介面）" width="810" height="698" loading="lazy" decoding="async"></a><figcaption>「待機擺動」分頁（畫面為日文介面）</figcaption></figure></section>
+<section id="idle" class="sec"><h2><span class="num">02</span>待機擺動</h2><h3>動作風格與強度</h3>
+<ul class="chips"><li>安靜</li><li>自然</li><li>活潑</li><li>想睡</li><li>緊張</li><li>俏皮</li><li>隨性</li></ul>
+<p>強度有「弱／普通／強」。選擇風格時，耳朵和尾巴的細部設定會套用該風格的數值。<strong>隨性</strong>是在長時間靜止之間，夾雜單耳短促的抖動，以及中心偏向一側、快慢不一的尾巴擺動。</p>
+<figure class="shot "><a class="zoom" href="assets/v150/kimagure.jpg" data-caption="隨性（きまぐれ）"><img src="assets/v150/kimagure.jpg" alt="隨性（きまぐれ）" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>隨性（きまぐれ）</figcaption></figure>
+<h3>耳朵</h3>
+<dl class="terms"><div><dt>左右耳</dt><dd>自動／同步／非同步。同步時可用「單耳動作比例」設定只有一邊耳朵抖動的機率。</dd></div><div><dt>動作種類</dt><dd>預設只有抖動，可以再加上「耳朵轉向」（慢慢朝外轉後停住）和「甩耳」（像甩掉水一樣甩動）。用行首的勾選框開關，「頻率（%）」決定比例。</dd></div></dl>
+<h3>尾巴</h3>
+<dl class="terms"><div><dt>動作</dt><dd>連續擺動／間歇擺動。</dd></div><div><dt>幅度與基本速度</dt><dd>1 倍是一個週期 1.5 秒。</dd></div><div><dt>柔軟度（%）</dt><dd>數值越高，根部越穩，擺動像波一樣傳到尾端。0 為原本的動作。</dd></div><div><dt>擺動中心與擺動快慢變化</dt><dd>往某一側偏著擺／讓每一次擺動的速度有變化（詳細調整）。</dd></div><div><dt>尾巴速度轉盤</dt><dd>開啟「生成尾巴速度轉盤」後，可以在 VRChat 裡用轉盤調整待機尾巴的速度。耳朵和手勢連動的速度不受影響。</dd></div></dl>
+<h3>生成方式</h3>
+<dl class="terms"><div><dt>逐骨生成（建議）</dt><dd>在整條骨鏈的每根骨骼寫入關鍵影格，適合沒有 PhysBone 的耳朵與尾巴。</dd></div><div><dt>交給物理（備案）</dt><dd>只驅動根部，其餘擺動交給 PhysBone。關鍵影格少、動作更柔和。</dd></div></dl>
+<p class="note">動作方向不對時，到「骨骼與詳細調整」用方向修正調整軸向。大多數角色用預設值就可以。</p></section>
+<section id="gesture" class="sec"><h2><span class="num">03</span>手勢連動（Gesture Link・產品版）</h2><p class="lead">依「左右手（GestureLeft / GestureRight）→ F2～F8 → 反應類型 → 耳朵與尾巴」的順序設定。</p>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_gesture.png" data-caption="「手勢連動」分頁（F3 / Open，畫面為日文介面）"><img src="assets/v150/ui_gesture.png" alt="「手勢連動」分頁（F3 / Open，畫面為日文介面）" width="810" height="924" loading="lazy" decoding="async"></a><figcaption>「手勢連動」分頁（F3 / Open，畫面為日文介面）</figcaption></figure>
+<h3>反應類型</h3>
+<dl class="terms"><div><dt>無</dt><dd>這個手勢不會驅動耳朵或尾巴。</dd></div><div><dt>姿勢</dt><dd>讓耳朵／尾巴倒向 2D 盤設定的方向。Fist 會依扳機按壓程度在 0～100% 間變化，其他手勢一比出來就是 100%。</dd></div><div><dt>連續動作</dt><dd>手勢持續時，循環播放所選風格的耳朵或尾巴動作。</dd></div><div><dt>部位分配</dt><dd>分別替耳朵與尾巴指定「無／姿勢／動作」。</dd></div></dl>
+<h3>用 2D 盤決定方向</h3>
+<div class="pads"><figure class="pad"><svg viewBox="0 0 350 230" role="img" aria-label="耳朵：2D 盤決定倒的方向，轉盤決定朝內／朝外">
+<rect x="52" y="40" width="150" height="150" rx="12" class="face"/>
+<circle cx="127" cy="115" r="66" class="ring"/><circle cx="127" cy="115" r="33" class="ring"/>
+<line x1="58" y1="115" x2="196" y2="115" class="ring"/><line x1="127" y1="46" x2="127" y2="184" class="ring"/>
+<line x1="127" y1="115" x2="118" y2="70" style="stroke:var(--ear)" class="hand"/><circle cx="118" cy="70" r="9" style="fill:var(--ear)"/><circle cx="118" cy="70" r="3.5" fill="#fff"/>
+<text x="127" y="30" class="lbl b">前</text><text x="127" y="214" class="lbl b">後</text>
+<text x="30" y="120" class="lbl b">收</text><text x="224" y="120" class="lbl b">開</text>
+<g transform="translate(298 112)">
+<circle r="34" class="dial"/><path d="M0 -26 A26 26 0 0 1 18.4 -18.4" class="arc" style="stroke:var(--ear)"/>
+<line x1="0" y1="0" x2="18.4" y2="-18.4" style="stroke:var(--ear)" class="hand"/><circle cx="18.4" cy="-18.4" r="4" style="fill:var(--ear)"/>
+<text y="-44" class="lbl b">轉向</text><text x="-30" y="52" class="lbl s">朝內</text><text x="30" y="52" class="lbl s">朝外</text></g></svg><figcaption>耳朵：2D 盤決定倒的方向，轉盤決定朝內／朝外</figcaption></figure><figure class="pad"><svg viewBox="0 0 250 230" role="img" aria-label="尾巴：2D 盤決定倒的方向">
+<rect x="52" y="40" width="150" height="150" rx="12" class="face"/>
+<circle cx="127" cy="115" r="66" class="ring"/><circle cx="127" cy="115" r="33" class="ring"/>
+<line x1="58" y1="115" x2="196" y2="115" class="ring"/><line x1="127" y1="46" x2="127" y2="184" class="ring"/>
+<line x1="127" y1="115" x2="146" y2="84" style="stroke:var(--tail)" class="hand"/><circle cx="146" cy="84" r="9" style="fill:var(--tail)"/><circle cx="146" cy="84" r="3.5" fill="#fff"/>
+<text x="127" y="30" class="lbl b">上</text><text x="127" y="214" class="lbl b">下</text>
+<text x="30" y="120" class="lbl b">左</text><text x="224" y="120" class="lbl b">右</text>
+</svg><figcaption>尾巴：2D 盤決定倒的方向</figcaption></figure></div>
+<ul class="list"><li>離中心越遠，倒得越多。左右是以角色本身看出去的方向。</li><li>2D 盤與轉盤用拖曳調整，<strong>點兩下回到中心（0）</strong>。</li><li>耳朵選「同方向」時兩耳左右對稱做同樣動作，「反方向」則另一隻耳朵做相反動作。</li><li>想直接輸入 XYZ 時打開「方向調整」。輸入 XYZ 後，在你再次拖動 2D 盤之前都會使用 XYZ 的值。</li><li>選取 Fist 時，可以用「預覽姿勢進度 (%)」確認不同按壓程度的樣子。</li></ul>
+<h3>手勢中停止待機動作</h3>
+<p>位於「FX 設定」中（預設開啟）。手勢動到的部位，在手勢期間暫停待機動作。關閉時，手勢的姿勢／動作會疊加在待機動作上。不論先生成待機或手勢連動，都會依 FX 內的圖層自動設定。</p>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_fx.png" data-caption="FX 設定（F2 / Fist，畫面為日文介面）"><img src="assets/v150/ui_fx.png" alt="FX 設定（F2 / Fist，畫面為日文介面）" width="810" height="184" loading="lazy" decoding="async"></a><figcaption>FX 設定（F2 / Fist，畫面為日文介面）</figcaption></figure>
+<p class="note">「複製到其他手勢」可以把目前手勢的設定複製到另一個手勢或全部手勢。顯示名稱不會被複製。</p></section>
+<section id="set2" class="sec"><h2><span class="num">04</span>第二組耳朵與尾巴</h2><p>在各分頁上方開啟「啟用第二組」，就能切換第一組／第二組來編輯。動作與速度共用，只有軸向修正分組調整。生成與更新會輸出所有啟用的組。</p>
+<figure class="shot "><a class="zoom" href="assets/v150/set2.jpg" data-caption="第二組耳朵與尾巴"><img src="assets/v150/set2.jpg" alt="第二組耳朵與尾巴" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>第二組耳朵與尾巴</figcaption></figure>
+<p class="note">第二組的骨骼請手動指定（自動偵測只針對第一組）。這不是讓兩組各自用不同動作、速度的功能。</p></section>
+<section id="output" class="sec"><h2><span class="num">05</span>生成、更新與 FX Controller</h2><dl class="terms"><div><dt>預覽</dt><dd>在 Unity Editor 中確認動作。生成或更新前，修改不會寫入資產或 FX。</dd></div><div><dt>生成</dt><dd>建立新的 Animation Clip 與ゆらもふ用的 FX 圖層。</dd></div><div><dt>更新</dt><dd>把目前設定套用到已生成的資料。</dd></div><div><dt>自動加入 FX</dt><dd>在角色的 FX Controller 加入播放生成動作的圖層。待機與手勢連動圖層皆為 Additive（固定 Write Defaults ON），會疊加在角色本身的動作上。</dd></div><div><dt>儲存位置與更新通知</dt><dd>在「待機擺動」→「FX 與儲存位置」設定。</dd></div></dl>
+<p class="note warn">Unity 的 Undo 無法完整還原 Animator Controller 的圖層。請先看過生成前顯示的確認清單，必要時先備份。</p>
+<p>解除安裝：執行 <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>，即可從 FX 移除ゆらもふ加入的圖層。</p></section>
+<section id="faq" class="sec"><h2><span class="num">06</span>常見問題</h2><details><summary>有 PhysBone 的耳朵和尾巴也能用嗎？</summary><p>可以。用狀態列的「檢查相容性」確認 PhysBone 的 Is Animated 等設定。想把擺動交給 PhysBone 時，生成方式請選「交給物理」。</p></details><details><summary>可以和 FaceEmo 一起用嗎？</summary><p>請依 FaceEmo → ゆらもふ的順序生成。FaceEmo 重新生成時會重建 FX，請指定新的 FX 後再重新生成ゆらもふ。</p></details><details><summary>更新工具後要做什麼？</summary><p>匯入後按「更新」，修正就會套用到既有的輸出；缺少的輸出請按「生成」。</p></details><details><summary>動作方向不對</summary><p>待機動作請用「骨骼與詳細調整」的方向修正；手勢連動的姿勢直接用 2D 盤調整方向。</p></details><details><summary>會連上網路嗎？</summary><p>每天只檢查一次最新版本，不會傳送專案或角色的任何資訊。可在「FX 與儲存位置」關閉，離線也能使用。</p></details><details><summary>設定存在哪裡？</summary><p>視窗設定以專案為單位，保存最後一組。「清空設定」可以回到預設值（不會刪除已生成的動畫和圖層）。</p></details>
+<p>遇到問題時，請透過 BOOTH 的訊息聯絡。</p></section>
+<section id="log" class="sec"><h2><span class="num">07</span>更新紀錄</h2><div class="log"><article><h3>v1.5.0</h3><ul><li>手勢連動的姿勢改用 2D 盤操作取代 XYZ（耳朵另有「轉向」轉盤）</li><li>新增「手勢中停止待機動作」（預設開啟）</li><li>手勢連動圖層改為 Additive，不再蓋掉角色本身的擺動與 AFK 動作</li><li>依按壓程度（GestureWeight）變化改為只限 Fist</li></ul></article><article><h3>v1.4.0 <span>2026-11-02</span></h3><ul><li>尾巴新增「柔軟度（%）」</li><li>修正間歇模式的尾巴只往一邊甩、甩不回來的問題</li></ul></article><article><h3>v1.3.1 <span>2026-10-28</span></h3><ul><li>修正與表情停用功能（Triturbo 等）併用時，耳朵與尾巴位置卡住的問題</li><li>修正手勢連動耳朵「同方向／反方向」在部分角色上相反的問題</li><li>軸向與方向選項會標示該角色實際的動作</li></ul></article></div>
+<p>更早的更新內容請參考同梱的 README_ZH.txt。</p></section>
+</main></div>
+<footer class="foot"><p>黒猫Dev · ゆらもふ v1.5.0 · 最後更新 2026-11-03</p><p>本頁不含工具本體，產品於 BOOTH 販售。</p>
+<p><a href="https://booth.pm/ja/items/8229167" target="_blank" rel="noopener">BOOTH<span class="ext" aria-hidden="true">↗</span></a> · <a href="https://github.com/kuroneko11375/yuramofu-guide" target="_blank" rel="noopener">GitHub<span class="ext" aria-hidden="true">↗</span></a> · <a href="#top">↑ 回到頂端</a></p></footer>
+<dialog id="viewer" aria-label="放大圖片"><button type="button" class="close" aria-label="關閉">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
+</body>
+</html>
