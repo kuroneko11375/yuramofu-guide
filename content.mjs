@@ -35,7 +35,7 @@ export const images = {
   'ui_gesture.png': [810, 924],
   'ui_pad.png': [810, 436],
   'ui_fx.png': [810, 184],
-  'ui_ear_separate.png': [810, 274],
+  'ui_ear_separate.png': [810, 290],
 };
 
 export const order = ['new', 'start', 'idle', 'gesture', 'set2', 'output', 'faq', 'log'];
@@ -65,7 +65,7 @@ export const guides = {
       new: { id: 'new', nav: 'v1.5.1 の新機能', title: 'v1.5.1 の新機能', blocks: [
         ['lead', '手勢連動のポーズで、左右の耳を別々に動かせるようになりました。'],
         ['cards', [
-          ['左右の耳を別々に', '「耳の左右動作」で「左右別々」を選ぶと、左耳・右耳それぞれにパッドと「向き」ダイヤルが出ます。片耳だけ前、もう片方は後ろ、といったポーズが作れます。', 'ui_ear_separate.png'],
+          ['左右の耳を別々に', '「耳の左右動作」で「左右別々」を選ぶと、耳ごとにパッドと「向き」ダイヤルが出ます。アバターを正面から見た並び（Scene ビューと同じ向き）で、各パッドの上には耳のボーン名が出ます。パッドを外側へ動かすと耳が開きます。', 'ui_ear_separate.png'],
         ]],
         ['list', [
           '「左耳だけ」「右耳だけ」を追加。片方の耳だけを動かし、もう片方は元の位置のままにします。',
@@ -265,7 +265,7 @@ export const guides = {
       new: { id: 'new', nav: 'New in v1.5.1', title: 'New in v1.5.1', blocks: [
         ['lead', 'Gesture poses can now move the left and right ears separately.'],
         ['cards', [
-          ['Each ear on its own', 'Choose Separate L/R under Ear L/R Behavior to get a pad and a Turn dial for the left ear and another for the right ear. One ear forward and the other back is now one pose.', 'ui_ear_separate.png'],
+          ['Each ear on its own', 'Choose Separate L/R under Ear L/R Behavior to get a pad and a Turn dial for each ear. The pads are laid out as the avatar is seen from the front (like the Scene view) and titled with the ear bone names; drag a pad outward to open that ear.', 'ui_ear_separate.png'],
         ]],
         ['list', [
           'Added Left ear only and Right ear only: one ear moves and the other stays where it is.',
@@ -465,7 +465,7 @@ export const guides = {
       new: { id: 'new', nav: 'v1.5.1 新功能', title: 'v1.5.1 新功能', blocks: [
         ['lead', '手勢連動的姿勢現在可以讓左右耳朵分開動。'],
         ['cards', [
-          ['左右耳朵分開設定', '在「左右耳行為」選「左右分開」，左耳和右耳就會各有一個 2D 盤和「轉向」轉盤。一隻耳朵往前、另一隻往後這種姿勢也做得出來。', 'ui_ear_separate.png'],
+          ['左右耳朵分開設定', '在「左右耳行為」選「左右分開」，每隻耳朵會各有一個 2D 盤和「轉向」轉盤。排列方式是從正面看角色的位置（和 Scene 視窗同方向），盤子上方會顯示耳朵的骨頭名稱；把 2D 盤往外拖，耳朵就會打開。', 'ui_ear_separate.png'],
         ]],
         ['list', [
           '新增「只有左耳」「只有右耳」：只動一隻耳朵，另一隻維持原位。',
@@ -665,7 +665,7 @@ export const guides = {
       new: { id: 'new', nav: 'v1.5.1 새 기능', title: 'v1.5.1 새 기능', blocks: [
         ['lead', '제스처 연동 포즈에서 왼쪽 귀와 오른쪽 귀를 따로 움직일 수 있게 되었습니다.'],
         ['cards', [
-          ['좌우 귀를 따로', '「귀 좌우 동작」에서 「좌우 따로」를 고르면 왼쪽 귀・오른쪽 귀에 각각 패드와 「방향」 다이얼이 나타납니다. 한쪽 귀는 앞으로, 다른 쪽은 뒤로 같은 포즈도 만들 수 있습니다.', 'ui_ear_separate.png'],
+          ['좌우 귀를 따로', '「귀 좌우 동작」에서 「좌우 따로」를 고르면 귀마다 패드와 「방향」 다이얼이 나타납니다. 아바터를 정면에서 본 배치(Scene 뷰와 같은 방향)이며, 패드 위에 귀 본 이름이 표시됩니다. 패드를 바깥쪽으로 움직이면 귀가 열립니다.', 'ui_ear_separate.png'],
         ]],
         ['list', [
           '「왼쪽 귀만」「오른쪽 귀만」 추가: 한쪽 귀만 움직이고 다른 쪽은 원래 위치에 둡니다.',
