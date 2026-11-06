@@ -18,8 +18,8 @@
 //   ['log', [[版, 日付, [項目…]], …]]
 
 export const meta = {
-  version: '1.5.0',
-  updated: '2026-11-03',
+  version: '1.5.1',
+  updated: '2026-11-06',
   booth: 'https://booth.pm/ja/items/8229167',
   github: 'https://github.com/kuroneko11375/yuramofu-guide',
   site: 'https://kuroneko11375.github.io/yuramofu-guide/',
@@ -35,6 +35,7 @@ export const images = {
   'ui_gesture.png': [810, 924],
   'ui_pad.png': [810, 436],
   'ui_fx.png': [810, 184],
+  'ui_ear_separate.png': [810, 274],
 };
 
 export const order = ['new', 'start', 'idle', 'gesture', 'set2', 'output', 'faq', 'log'];
@@ -52,7 +53,7 @@ export const guides = {
       headline: '耳がぴくっと、<br>尻尾がゆらり。',
       lead: 'ゆらもふは、耳・尻尾のボーンから待機モーションやジェスチャー連動のアニメーションを作る Unity Editor 拡張です。プレビューで確かめてから生成し、FX Controller へのレイヤー追加まで自動で行えます。',
       start: 'はじめての設定', booth: 'BOOTH 商品ページ',
-      badge: '製品版 v1.5.0 に対応',
+      badge: '製品版 v1.5.1 に対応',
       imageAlt: 'ゆらもふのメイン画像',
     },
     pad: {
@@ -61,18 +62,17 @@ export const guides = {
       earCap: '耳：パッドで倒す向き、ダイヤルで向き（内／外）', tailCap: '尻尾：パッドで倒す向き',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.0 の新機能', title: 'v1.5.0 の新機能', blocks: [
-        ['lead', 'ジェスチャー連動のポーズが、数値入力からパッド操作になりました。待機モーションとの重なり方も整理しています。'],
+      new: { id: 'new', nav: 'v1.5.1 の新機能', title: 'v1.5.1 の新機能', blocks: [
+        ['lead', '手勢連動のポーズで、左右の耳を別々に動かせるようになりました。'],
         ['cards', [
-          ['パッドでポーズを決める', '耳は「前／後ろ・閉／開」、尻尾は「上下左右」をドラッグするだけ。耳の内向き／外向きは「向き」ダイヤルで調整します。ボーンの軸に関係なく、アバターから見た方向に動きます。', 'ui_pad.png'],
-          ['ジェスチャー中は待機を止める', 'ジェスチャーで動かしている耳・尻尾は、その間だけ待機モーションが止まり、ポーズがきれいに見えます（初期値 ON）。', 'ui_fx.png'],
+          ['左右の耳を別々に', '「耳の左右動作」で「左右別々」を選ぶと、左耳・右耳それぞれにパッドと「向き」ダイヤルが出ます。片耳だけ前、もう片方は後ろ、といったポーズが作れます。', 'ui_ear_separate.png'],
         ]],
         ['list', [
-          '手勢連動のレイヤーを Additive に変更。ジェスチャーをしていない間は、アバター本来の尻尾の揺れや AFK モーション、ゆらもふの待機モーションを止めません。',
-          'トリガーの押し具合（GestureWeight）で変化するのは Fist だけになりました。他の手勢は押した瞬間に 100% のポーズになります。',
-          '以前の XYZ 設定はそのまま使えます。XYZ の直接入力も「方向の調整」に残っています。',
+          '「左耳だけ」「右耳だけ」を追加。片方の耳だけを動かし、もう片方は元の位置のままにします。',
+          '尻尾速度のダイヤルを 0% にすると、途中の角度で固まらず、尻尾が元の位置に戻って止まるようになりました。',
+          'ツール画面が韓国語（한국어）に対応。画面右上の「KO」で切り替えます。',
         ]],
-        ['note', '既存の手勢連動は、ツールを更新したあと「生成」または「更新」で新しい形式になります。', 'warn'],
+        ['note', '速度ダイヤルの変更は、ツールを更新したあと「更新」を実行すると既存の出力に反映されます。', 'warn'],
       ]},
       start: { id: 'start', nav: 'はじめに', title: 'はじめに', blocks: [
         ['note', '動作環境：Unity 2022.3 LTS 以降（Windows 版 Unity Editor）。FX への自動追加・手勢連動・尻尾速度のダイヤルには VRChat SDK3 Avatars が必要です。SDK がなくても基本の Animation Clip は生成できます。'],
@@ -101,7 +101,7 @@ export const guides = {
           ['振幅・基本速度', '1 倍は 1 周期 1.5 秒です。'],
           ['しなやかさ (%)', '上げるほど根元が落ち着き、揺れが波のように先へ伝わります。0 で従来どおり。'],
           ['振れの中心・揺れの緩急', '左右どちらかに寄せて揺らす／1 回ごとの速さにばらつきを付ける（詳細調整）。'],
-          ['尻尾速度のダイヤル', '「尻尾速度のダイヤルを生成」を ON にすると、VRChat 内のダイヤルで待機中の尻尾の速さを変えられます。耳や手勢連動の速さは変わりません。'],
+          ['尻尾速度のダイヤル', '「尻尾速度のダイヤルを生成」を ON にすると、VRChat 内のダイヤルで待機中の尻尾の速さを変えられます。0% にすると尻尾は元の位置に戻って止まります。耳や手勢連動の速さは変わりません。'],
         ]],
         ['h3', '生成方式'],
         ['dl', [
@@ -125,7 +125,7 @@ export const guides = {
         ['list', [
           'パッドの中心から離すほど大きく倒れます。左右はアバター本人から見た向きです。',
           'パッドやダイヤルはドラッグで調整、<strong>ダブルクリックで中央（0）</strong>に戻ります。',
-          '耳の「同方向」は両耳が左右対称に同じ動き、「反対方向」はもう片方の耳が逆の動きになります。',
+          '耳の「同方向」は両耳が左右対称に同じ動き、「反対方向」はもう片方の耳が逆の動きになります。「左耳だけ」「右耳だけ」は片方の耳だけが動き、「左右別々」は耳ごとにパッドで向きを決めます。',
           'XYZ で直接入力したいときは「方向の調整」を開きます。XYZ を入力すると、パッドを動かすまでは XYZ の値が使われます。',
           'Fist を選択中は「ポーズのプレビュー (%)」で押し具合ごとの見え方を確認できます。',
         ]],
@@ -163,6 +163,12 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
+          ['1.5.1', '', [
+            '手勢連動のポーズで、左右の耳を別々に設定できる「左右別々」を追加',
+            '「左耳だけ」「右耳だけ」を追加',
+            '尻尾速度のダイヤルが 0% のとき、尻尾が元の位置に戻って止まるように',
+            'ツール画面の韓国語（한국어）に対応',
+          ]],
           ['1.5.0', '', [
             '手勢連動のポーズを XYZ からパッド操作に変更（耳は「向き」ダイヤル付き）',
             '「ジェスチャー中は待機を止める」を追加（初期値 ON）',
@@ -247,7 +253,7 @@ export const guides = {
       headline: 'A twitch of the ears,<br>a sway of the tail.',
       lead: 'YuraMofu is a Unity Editor extension that builds idle and gesture-linked animations from your avatar\'s ear and tail bones. Check everything in the preview, then generate — it can add the layers to your FX Controller for you.',
       start: 'Getting started', booth: 'BOOTH product page',
-      badge: 'Covers product version v1.5.0',
+      badge: 'Covers product version v1.5.1',
       imageAlt: 'YuraMofu main image',
     },
     pad: {
@@ -256,18 +262,17 @@ export const guides = {
       earCap: 'Ears: the pad sets the tilt, the dial turns them in or out', tailCap: 'Tail: the pad sets the tilt',
     },
     sections: {
-      new: { id: 'new', nav: 'New in v1.5.0', title: 'New in v1.5.0', blocks: [
-        ['lead', 'Gesture poses are now set on a pad instead of typed numbers, and gestures and idle motion fit together better.'],
+      new: { id: 'new', nav: 'New in v1.5.1', title: 'New in v1.5.1', blocks: [
+        ['lead', 'Gesture poses can now move the left and right ears separately.'],
         ['cards', [
-          ['Set poses on a pad', 'Drag forward/back and in/out for the ears, or up/down/left/right for the tail. A Turn dial turns the ears in or out. Poses move in the avatar\'s own directions, whatever the bone axes are.', 'ui_pad.png'],
-          ['Pause idle during gestures', 'While a gesture moves the ears or tail, that part\'s idle motion pauses so the pose reads clearly (on by default).', 'ui_fx.png'],
+          ['Each ear on its own', 'Choose Separate L/R under Ear L/R Behavior to get a pad and a Turn dial for the left ear and another for the right ear. One ear forward and the other back is now one pose.', 'ui_ear_separate.png'],
         ]],
         ['list', [
-          'The Gesture Link layer is now additive. With no gesture it no longer stops the avatar\'s own tail sway, AFK motion or YuraMofu\'s idle motion.',
-          'Only Fist follows trigger pressure (GestureWeight). Other gestures show the full pose as soon as they are made.',
-          'Existing XYZ settings keep working, and raw XYZ entry is still under Direction.',
+          'Added Left ear only and Right ear only: one ear moves and the other stays where it is.',
+          'With the tail speed dial at 0%, the tail now eases back to its rest position and stops, instead of freezing mid-swing.',
+          'The tool UI is now available in Korean (한국어). Switch with KO at the top right.',
         ]],
-        ['note', 'After updating the tool, Generate or Update your Gesture Link to switch it to the new format.', 'warn'],
+        ['note', 'After updating the tool, run Update to apply the speed dial change to existing output.', 'warn'],
       ]},
       start: { id: 'start', nav: 'Getting started', title: 'Getting started', blocks: [
         ['note', 'Requirements: Unity 2022.3 LTS or later (Windows Unity Editor). Adding to FX, Gesture Link and the tail speed dial need the VRChat SDK3 Avatars; basic Animation Clips can be generated without it.'],
@@ -296,7 +301,7 @@ export const guides = {
           ['Amplitude and base speed', '1x is a 1.5-second cycle.'],
           ['Suppleness (%)', 'Higher values calm the base and send the swing to the tip as a wave. 0 keeps the previous motion.'],
           ['Swing Center and Tempo Variation', 'Swing around an off-centre point / vary the speed of each swing (Detailed Settings).'],
-          ['Tail speed dial', 'Turn on Generate Tail Speed Dial to change the idle tail speed with a dial in VRChat. Ear and Gesture Link speeds are unaffected.'],
+          ['Tail speed dial', 'Turn on Generate Tail Speed Dial to change the idle tail speed with a dial in VRChat. At 0% the tail returns to its rest position and stops. Ear and Gesture Link speeds are unaffected.'],
         ]],
         ['h3', 'Output mode'],
         ['dl', [
@@ -320,7 +325,7 @@ export const guides = {
         ['list', [
           'The further from the centre, the bigger the tilt. Left/right is as seen from the avatar.',
           'Drag the pad and dial to adjust; <strong>double-click to return to the centre (0)</strong>.',
-          'For the ears, Same mirrors the motion on both ears, Opposite makes the other ear do the reverse.',
+          'For the ears, Same mirrors the motion on both ears, Opposite makes the other ear do the reverse. Left ear only / Right ear only move just that ear, and Separate L/R gives each ear its own pad.',
           'Open Direction to type XYZ directly. Typed XYZ is used until you move the pad again.',
           'With Fist selected, Pose Preview (%) shows each pressure level.',
         ]],
@@ -358,6 +363,12 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
+          ['1.5.1', '', [
+            'Added Separate L/R for Gesture Link poses: set the left and right ears on their own pads',
+            'Added Left ear only and Right ear only',
+            'With the tail speed dial at 0%, the tail returns to rest and stops',
+            'Korean UI (한국어)',
+          ]],
           ['1.5.0', '', [
             'Gesture poses are set on a pad instead of XYZ (with a Turn dial for the ears)',
             'Added Pause idle during gestures (on by default)',
@@ -442,7 +453,7 @@ export const guides = {
       headline: '耳朵輕輕一抖，<br>尾巴悠悠一晃。',
       lead: 'ゆらもふ 是 Unity Editor 擴充工具，能用角色的耳朵與尾巴骨骼，做出待機動作和手勢連動動畫。先預覽確認再生成，還能自動把圖層加進 FX Controller。',
       start: '開始設定', booth: 'BOOTH 商品頁',
-      badge: '對應產品版 v1.5.0',
+      badge: '對應產品版 v1.5.1',
       imageAlt: 'ゆらもふ 主視覺',
     },
     pad: {
@@ -451,18 +462,17 @@ export const guides = {
       earCap: '耳朵：2D 盤決定倒的方向，轉盤決定朝內／朝外', tailCap: '尾巴：2D 盤決定倒的方向',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.0 新功能', title: 'v1.5.0 新功能', blocks: [
-        ['lead', '手勢連動的姿勢從輸入數字改成拖曳 2D 盤，和待機動作的搭配也重新整理過。'],
+      new: { id: 'new', nav: 'v1.5.1 新功能', title: 'v1.5.1 新功能', blocks: [
+        ['lead', '手勢連動的姿勢現在可以讓左右耳朵分開動。'],
         ['cards', [
-          ['用 2D 盤決定姿勢', '耳朵拖「前／後・收／開」，尾巴拖「上下左右」就好；耳朵朝內／朝外用「轉向」轉盤調整。不論骨骼軸向怎麼擺，都會照角色看出去的方向動。', 'ui_pad.png'],
-          ['手勢中停止待機動作', '手勢動到的耳朵／尾巴，在手勢期間暫停待機動作，姿勢看起來更乾淨（預設開啟）。', 'ui_fx.png'],
+          ['左右耳朵分開設定', '在「左右耳行為」選「左右分開」，左耳和右耳就會各有一個 2D 盤和「轉向」轉盤。一隻耳朵往前、另一隻往後這種姿勢也做得出來。', 'ui_ear_separate.png'],
         ]],
         ['list', [
-          '手勢連動圖層改為 Additive。沒比手勢時，不會再蓋掉角色本身的尾巴擺動、AFK 動作和ゆらもふ的待機動作。',
-          '依扳機按壓程度（GestureWeight）變化改為只限 Fist，其他手勢一比出來就是 100% 姿勢。',
-          '舊的 XYZ 設定照樣能用，XYZ 直接輸入也還在「方向調整」裡。',
+          '新增「只有左耳」「只有右耳」：只動一隻耳朵，另一隻維持原位。',
+          '尾巴速度轉盤轉到 0% 時，尾巴會慢慢回到原本的位置停下，不會卡在擺到一半的角度。',
+          '工具介面支援韓文（한국어），在右上角按「KO」切換。',
         ]],
-        ['note', '更新工具後，既有的手勢連動請按「生成」或「更新」換成新格式。', 'warn'],
+        ['note', '速度轉盤的變更，更新工具後按「更新」才會套用到既有的輸出。', 'warn'],
       ]},
       start: { id: 'start', nav: '開始使用', title: '開始使用', blocks: [
         ['note', '環境需求：Unity 2022.3 LTS 以上（Windows 版 Unity Editor）。自動加入 FX、手勢連動與尾巴速度轉盤需要 VRChat SDK3 Avatars；沒有 SDK 也能生成基本的 Animation Clip。'],
@@ -491,7 +501,7 @@ export const guides = {
           ['幅度與基本速度', '1 倍是一個週期 1.5 秒。'],
           ['柔軟度（%）', '數值越高，根部越穩，擺動像波一樣傳到尾端。0 為原本的動作。'],
           ['擺動中心與擺動快慢變化', '往某一側偏著擺／讓每一次擺動的速度有變化（詳細調整）。'],
-          ['尾巴速度轉盤', '開啟「生成尾巴速度轉盤」後，可以在 VRChat 裡用轉盤調整待機尾巴的速度。耳朵和手勢連動的速度不受影響。'],
+          ['尾巴速度轉盤', '開啟「生成尾巴速度轉盤」後，可以在 VRChat 裡用轉盤調整待機尾巴的速度，轉到 0% 時尾巴會回到原位停下。耳朵和手勢連動的速度不受影響。'],
         ]],
         ['h3', '生成方式'],
         ['dl', [
@@ -515,7 +525,7 @@ export const guides = {
         ['list', [
           '離中心越遠，倒得越多。左右是以角色本身看出去的方向。',
           '2D 盤與轉盤用拖曳調整，<strong>點兩下回到中心（0）</strong>。',
-          '耳朵選「同方向」時兩耳左右對稱做同樣動作，「反方向」則另一隻耳朵做相反動作。',
+          '耳朵選「同方向」時兩耳左右對稱做同樣動作，「反方向」則另一隻耳朵做相反動作；「只有左耳」「只有右耳」只動一隻耳朵，「左右分開」則每隻耳朵各用一個 2D 盤決定方向。',
           '想直接輸入 XYZ 時打開「方向調整」。輸入 XYZ 後，在你再次拖動 2D 盤之前都會使用 XYZ 的值。',
           '選取 Fist 時，可以用「預覽姿勢進度 (%)」確認不同按壓程度的樣子。',
         ]],
@@ -553,6 +563,12 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
+          ['1.5.1', '', [
+            '手勢連動姿勢新增「左右分開」，左右耳朵可以各自設定',
+            '新增「只有左耳」「只有右耳」',
+            '尾巴速度轉盤為 0% 時，尾巴會回到原位停下',
+            '工具介面支援韓文（한국어）',
+          ]],
           ['1.5.0', '', [
             '手勢連動的姿勢改用 2D 盤操作取代 XYZ（耳朵另有「轉向」轉盤）',
             '新增「手勢中停止待機動作」（預設開啟）',
@@ -637,7 +653,7 @@ export const guides = {
       headline: '귀는 쫑긋,<br>꼬리는 살랑.',
       lead: '유라모후는 아바타의 귀・꼬리 본으로 대기 모션과 제스처 연동 애니메이션을 만드는 Unity 에디터 확장입니다. 프리뷰로 확인한 뒤 생성하며, FX Controller에 레이어를 추가하는 작업까지 자동으로 할 수 있습니다.',
       start: '처음 설정하기', booth: 'BOOTH 상품 페이지',
-      badge: '풀 버전 v1.5.0 기준',
+      badge: '풀 버전 v1.5.1 기준',
       imageAlt: '유라모후 메인 이미지',
     },
     pad: {
@@ -646,111 +662,116 @@ export const guides = {
       earCap: '귀: 패드로 기울일 방향, 다이얼로 안쪽/바깥쪽 방향', tailCap: '꼬리: 패드로 기울일 방향',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.0 새 기능', title: 'v1.5.0 새 기능', blocks: [
-        ['lead', '제스처 연동 포즈를 숫자 입력 대신 패드로 정할 수 있게 되었습니다. 대기 모션과 겹치는 방식도 정리했습니다.'],
+      new: { id: 'new', nav: 'v1.5.1 새 기능', title: 'v1.5.1 새 기능', blocks: [
+        ['lead', '제스처 연동 포즈에서 왼쪽 귀와 오른쪽 귀를 따로 움직일 수 있게 되었습니다.'],
         ['cards', [
-          ['패드로 포즈 정하기', '귀는 「앞/뒤・닫힘/열림」, 꼬리는 「상하좌우」로 드래그만 하면 됩니다. 귀의 안쪽/바깥쪽 방향은 「Turn」 다이얼로 조정합니다. 본의 축 방향과 관계없이 아바타 기준 방향으로 움직입니다.', 'ui_pad.png'],
-          ['제스처 중에는 대기 모션 정지', '제스처로 움직이는 귀・꼬리는 그동안만 대기 모션이 멈춰서 포즈가 깔끔하게 보입니다(기본값 ON).', 'ui_fx.png'],
+          ['좌우 귀를 따로', '「귀 좌우 동작」에서 「좌우 따로」를 고르면 왼쪽 귀・오른쪽 귀에 각각 패드와 「방향」 다이얼이 나타납니다. 한쪽 귀는 앞으로, 다른 쪽은 뒤로 같은 포즈도 만들 수 있습니다.', 'ui_ear_separate.png'],
         ]],
         ['list', [
-          '제스처 연동 레이어를 Additive로 바꿨습니다. 제스처를 하지 않는 동안에는 아바타 본래의 꼬리 흔들림, AFK 모션, 유라모후의 대기 모션을 멈추지 않습니다.',
-          '트리거를 누르는 정도(GestureWeight)에 따라 변하는 것은 Fist뿐입니다. 다른 제스처는 누르는 순간 100% 포즈가 됩니다.',
-          '기존 XYZ 설정은 그대로 쓸 수 있으며, XYZ 직접 입력도 「Direction」에 남아 있습니다.',
+          '「왼쪽 귀만」「오른쪽 귀만」 추가: 한쪽 귀만 움직이고 다른 쪽은 원래 위치에 둡니다.',
+          '꼬리 속도 다이얼을 0%로 하면 꼬리가 중간 각도에서 굳지 않고, 원래 위치로 돌아가서 멈춥니다.',
+          '툴 화면이 한국어를 지원합니다. 오른쪽 위의 「KO」로 바꿀 수 있습니다.',
         ]],
-        ['note', '툴을 업데이트한 뒤, 기존 제스처 연동은 「Generate」 또는 「Update」를 실행하면 새 형식으로 바뀝니다.', 'warn'],
+        ['note', '속도 다이얼 변경은 툴을 업데이트한 뒤 「업데이트」를 실행하면 기존 출력에 반영됩니다.', 'warn'],
       ]},
       start: { id: 'start', nav: '시작하기', title: '시작하기', blocks: [
-        ['note', '툴 화면은 한국어를 지원하지 않습니다. 이 가이드에서는 영어 화면의 이름을 「」로 표기합니다. 스크린샷은 일본어 화면입니다.'],
+        ['note', '툴 화면은 오른쪽 위의 「KO」로 한국어로 바꿀 수 있습니다(v1.5.1 이후). 이 가이드의 스크린샷은 일본어 화면입니다.'],
         ['note', '동작 환경: Unity 2022.3 LTS 이상(Windows판 Unity Editor). FX 자동 추가, 제스처 연동, 꼬리 속도 다이얼에는 VRChat SDK3 Avatars가 필요합니다. SDK가 없어도 기본 Animation Clip은 생성할 수 있습니다.'],
         ['steps', [
           ['임포트해서 열기', 'unitypackage를 프로젝트에 임포트하고 메뉴의 <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code>를 엽니다. 작업 전에 프로젝트를 백업하는 것을 권장합니다.'],
-          ['아바타를 지정하고 「Auto Detect」', 'Scene에 있는 아바타를 「Avatar」 칸에 넣고 「Auto Detect」를 누릅니다. 상태 표시줄의 귀・꼬리・FX가 ✓가 되면 준비 완료입니다. 검출 결과는 꼭 확인하고, 다르면 「Bones & Details」에서 다시 지정하세요.'],
-          ['스타일과 강도 고르기', '「Idle Motion」 탭에서 모션 스타일과 강도를 고르고, 귀와 꼬리를 각각 조정합니다.'],
-          ['프리뷰로 확인', '「Preview」로 Scene에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성하기 전까지 에셋이나 FX에 기록되지 않습니다.'],
-          ['생성 / 업데이트', '처음에는 「Generate」, 이미 생성한 움직임을 바꿀 때는 「Update」를 누릅니다. 내보낼 파일과 추가・교체될 레이어 목록을 확인한 뒤 실행됩니다.'],
+          ['아바타를 지정하고 「자동 감지」', 'Scene에 있는 아바타를 「아바타」 칸에 넣고 「자동 감지」를 누릅니다. 상태 표시줄의 귀・꼬리・FX가 ✓가 되면 준비 완료입니다. 검출 결과는 꼭 확인하고, 다르면 「본・세부 조정」에서 다시 지정하세요.'],
+          ['스타일과 강도 고르기', '「대기 모션」 탭에서 모션 스타일과 강도를 고르고, 귀와 꼬리를 각각 조정합니다.'],
+          ['프리뷰로 확인', '「미리보기」로 Scene에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성하기 전까지 에셋이나 FX에 기록되지 않습니다.'],
+          ['생성 / 업데이트', '처음에는 「생성」, 이미 생성한 움직임을 바꿀 때는 「업데이트」를 누릅니다. 내보낼 파일과 추가・교체될 레이어 목록을 확인한 뒤 실행됩니다.'],
         ]],
-        ['img', 'ui_idle.png', '「Idle Motion」 탭(화면은 일본어)'],
+        ['img', 'ui_idle.png', '「대기 모션」 탭(화면은 일본어)'],
       ]},
-      idle: { id: 'idle', nav: '대기 모션', title: '대기 모션(Idle Motion)', blocks: [
+      idle: { id: 'idle', nav: '대기 모션', title: '대기 모션', blocks: [
         ['h3', '모션 스타일과 강도'],
-        ['chips', ['얌전함 (Calm)', '자연스러움 (Natural)', '활발함 (Lively)', '졸림 (Sleepy)', '안절부절 (Nervous)', '장난꾸러기 (Silly)', '변덕 (Whimsical)']],
-        ['p', '강도는 「Soft / Normal / Strong」(약하게・보통・강하게) 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. <strong>변덕(Whimsical)</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.'],
-        ['img', 'kimagure.jpg', '변덕 (Whimsical / きまぐれ)'],
+        ['chips', ['얌전하게', '자연스럽게', '활발하게', '졸린 듯', '안절부절', '장난스럽게', '변덕스럽게']],
+        ['p', '강도는 「약하게 / 보통 / 강하게」 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. <strong>변덕스럽게</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.'],
+        ['img', 'kimagure.jpg', '변덕스럽게 (きまぐれ)'],
         ['h3', '귀'],
         ['dl', [
-          ['귀 좌우 (Ear L/R)', '자동(Auto) / 동기(Sync) / 비동기(Async). 동기일 때는 「Single-Ear Share」로 한쪽 귀만 쫑긋할 확률을 정할 수 있습니다.'],
-          ['움직임 종류', '기본은 쫑긋하는 움직임뿐이지만, 「Ear Swivel」(천천히 바깥쪽으로 돌아가서 멈춤)과 「Ear Shake」(물기를 털듯이 흔듦)를 추가할 수 있습니다. 앞의 체크로 ON/OFF, 「Frequency (%)」로 비율을 정합니다.'],
+          ['귀 좌우', '자동 / 동기 / 비동기. 동기일 때는 「한쪽 귀만 움직이는 비율」로 한쪽 귀만 쫑긋할 확률을 정할 수 있습니다.'],
+          ['움직임 종류', '기본은 쫑긋하는 움직임뿐이지만, 「귀 방향 바꾸기」(천천히 바깥쪽으로 돌아가서 멈춤)과 「귀 털기」(물기를 털듯이 흔듦)를 추가할 수 있습니다. 앞의 체크로 ON/OFF, 「빈도 (%)」로 비율을 정합니다.'],
         ]],
         ['h3', '꼬리'],
         ['dl', [
-          ['움직임 (Motion)', '연속 진자(Continuous) / 간헐적 흔들기(Intermittent).'],
+          ['움직임 모드', '연속 진자 / 간헐 흔들기.'],
           ['진폭・기본 속도', '1배는 한 주기 1.5초입니다.'],
-          ['유연함 (Suppleness %)', '올릴수록 뿌리 쪽은 차분해지고, 흔들림이 물결처럼 끝으로 전해집니다. 0이면 기존과 같습니다.'],
-          ['흔들림 중심・완급 (Swing Center / Tempo Variation)', '좌우 한쪽으로 치우쳐 흔들기 / 한 번 흔들 때마다 속도에 변화를 주기(Detailed Settings).'],
-          ['꼬리 속도 다이얼', '「Generate Tail Speed Dial」을 ON으로 하면 VRChat 안에서 다이얼로 대기 중인 꼬리 속도를 바꿀 수 있습니다. 귀와 제스처 연동의 속도는 바뀌지 않습니다.'],
+          ['유연함 (%)', '올릴수록 뿌리 쪽은 차분해지고, 흔들림이 물결처럼 끝으로 전해집니다. 0이면 기존과 같습니다.'],
+          ['흔들림 중심・흔들림 완급', '좌우 한쪽으로 치우쳐 흔들기 / 한 번 흔들 때마다 속도에 변화를 주기(세부 조정).'],
+          ['꼬리 속도 다이얼', '「꼬리 속도 다이얼 생성」을 ON으로 하면 VRChat 안에서 다이얼로 대기 중인 꼬리 속도를 바꿀 수 있습니다. 0%로 하면 꼬리가 원래 위치로 돌아가서 멈춥니다. 귀와 제스처 연동의 속도는 바뀌지 않습니다.'],
         ]],
-        ['h3', '생성 방식 (Output mode)'],
+        ['h3', '생성 방식'],
         ['dl', [
-          ['본마다 (Bake Chain, 권장)', '체인 전체의 본에 키를 기록합니다. PhysBone이 없는 귀・꼬리용입니다.'],
-          ['물리에 맡기기 (Physics-Friendly, 대체)', '뿌리만 움직이고 나머지 흔들림은 PhysBone에 맡깁니다. 키가 적고 부드러운 움직임이 됩니다.'],
+          ['본마다 (권장)', '체인 전체의 본에 키를 기록합니다. PhysBone이 없는 귀・꼬리용입니다.'],
+          ['물리에 맡기기 (대체)', '뿌리만 움직이고 나머지 흔들림은 PhysBone에 맡깁니다. 키가 적고 부드러운 움직임이 됩니다.'],
         ]],
-        ['note', '움직이는 방향이 이상할 때는 「Bones & Details」의 「Axis Correction」으로 축을 고치세요. 보통은 기본 설정 그대로도 문제없습니다.'],
+        ['note', '움직이는 방향이 이상할 때는 「본・세부 조정」의 「방향 보정」으로 축을 고치세요. 보통은 기본 설정 그대로도 문제없습니다.'],
       ]},
-      gesture: { id: 'gesture', nav: '제스처 연동', title: '제스처 연동(Gesture Link・풀 버전)', blocks: [
+      gesture: { id: 'gesture', nav: '제스처 연동', title: '제스처 연동(풀 버전)', blocks: [
         ['lead', '손(GestureLeft / GestureRight) → F2~F8 → 리액션 타입 → 귀・꼬리 순서로 설정합니다.'],
-        ['img', 'ui_gesture.png', '「Gesture Link」 탭(F3 / Open, 화면은 일본어)'],
+        ['img', 'ui_gesture.png', '「제스처 연동」 탭(F3 / Open, 화면은 일본어)'],
         ['h3', '리액션 타입'],
         ['dl', [
-          ['없음 (None)', '그 제스처에서는 귀・꼬리를 움직이지 않습니다.'],
-          ['포즈 (Pose)', '패드로 정한 방향으로 귀・꼬리를 기울입니다. Fist는 트리거를 누르는 정도에 따라 0~100%로 변하고, 다른 제스처는 누르는 순간 100%가 됩니다.'],
-          ['연속 모션 (Continuous Motion)', '그 제스처를 하는 동안 고른 스타일의 귀・꼬리 움직임을 반복합니다.'],
-          ['부위별 (Per Part)', '귀와 꼬리에 각각 「없음 / 포즈 / 모션」을 지정합니다.'],
+          ['없음', '그 제스처에서는 귀・꼬리를 움직이지 않습니다.'],
+          ['포즈', '패드로 정한 방향으로 귀・꼬리를 기울입니다. Fist는 트리거를 누르는 정도에 따라 0~100%로 변하고, 다른 제스처는 누르는 순간 100%가 됩니다.'],
+          ['연속 모션', '그 제스처를 하는 동안 고른 스타일의 귀・꼬리 움직임을 반복합니다.'],
+          ['부위별', '귀와 꼬리에 각각 「없음 / 포즈 / 모션」을 지정합니다.'],
         ]],
         ['h3', '패드로 방향 정하기'],
         ['pad', 'ear'], ['pad', 'tail'],
         ['list', [
           '패드 중심에서 멀어질수록 크게 기울어집니다. 좌우는 아바타 본인이 본 방향입니다.',
           '패드와 다이얼은 드래그로 조정하고, <strong>더블클릭하면 중앙(0)</strong>으로 돌아갑니다.',
-          '귀의 「Same」은 양쪽 귀가 좌우 대칭으로 같은 움직임, 「Opposite」는 다른 쪽 귀가 반대로 움직입니다.',
-          'XYZ로 직접 입력하고 싶을 때는 「Direction」을 엽니다. XYZ를 입력하면 패드를 다시 움직이기 전까지 XYZ 값이 사용됩니다.',
-          'Fist를 선택 중일 때는 「Pose Preview (%)」로 누르는 정도별 모습을 확인할 수 있습니다.',
+          '귀의 「같은 방향」은 양쪽 귀가 좌우 대칭으로 같은 움직임, 「반대 방향」은 다른 쪽 귀가 반대로 움직입니다. 「왼쪽 귀만」「오른쪽 귀만」은 한쪽 귀만 움직이고, 「좌우 따로」는 귀마다 패드로 방향을 정합니다.',
+          'XYZ로 직접 입력하고 싶을 때는 「방향 조정」을 엽니다. XYZ를 입력하면 패드를 다시 움직이기 전까지 XYZ 값이 사용됩니다.',
+          'Fist를 선택 중일 때는 「포즈 미리보기 (%)」로 누르는 정도별 모습을 확인할 수 있습니다.',
         ]],
         ['h3', '제스처 중에는 대기 모션 정지'],
-        ['p', '「FX Settings」에 있는 설정입니다(기본값 ON). 제스처로 움직이는 부위의 대기 모션을 그동안만 멈춥니다. OFF로 하면 제스처의 포즈・모션이 대기 모션 위에 겹쳐집니다. 대기와 제스처 연동 중 어느 쪽을 먼저 생성해도 FX 안의 레이어를 보고 자동으로 설정됩니다.'],
-        ['img', 'ui_fx.png', '「FX Settings」(F2 / Fist, 화면은 일본어)'],
-        ['note', '「Copy To...」로 선택 중인 제스처의 설정을 다른 제스처(또는 모든 제스처)에 복사할 수 있습니다. 표시 이름은 복사되지 않습니다.'],
+        ['p', '「FX 설정」에 있는 설정입니다(기본값 ON). 제스처로 움직이는 부위의 대기 모션을 그동안만 멈춥니다. OFF로 하면 제스처의 포즈・모션이 대기 모션 위에 겹쳐집니다. 대기와 제스처 연동 중 어느 쪽을 먼저 생성해도 FX 안의 레이어를 보고 자동으로 설정됩니다.'],
+        ['img', 'ui_fx.png', '「FX 설정」(F2 / Fist, 화면은 일본어)'],
+        ['note', '「다른 제스처로 복사」로 선택 중인 제스처의 설정을 다른 제스처(또는 모든 제스처)에 복사할 수 있습니다. 표시 이름은 복사되지 않습니다.'],
       ]},
       set2: { id: 'set2', nav: '두 번째 귀・꼬리', title: '두 번째 귀・꼬리', blocks: [
-        ['p', '각 탭 위쪽의 「Enable second set」을 ON으로 하면 첫 번째/두 번째 세트를 전환하며 편집할 수 있습니다. 움직임과 속도는 공통이고, 축 보정만 세트별로 조정합니다. 생성・업데이트 시에는 활성화된 세트를 모두 출력합니다.'],
+        ['p', '각 탭 위쪽의 「두 번째 세트 사용」을 ON으로 하면 첫 번째/두 번째 세트를 전환하며 편집할 수 있습니다. 움직임과 속도는 공통이고, 축 보정만 세트별로 조정합니다. 생성・업데이트 시에는 활성화된 세트를 모두 출력합니다.'],
         ['img', 'set2.jpg', '두 번째 귀・꼬리'],
-        ['note', '두 번째 세트의 본은 직접 지정해 주세요(「Auto Detect」는 첫 번째 세트만 대상입니다). 두 세트를 각각 다른 움직임・속도로 움직이는 기능은 아닙니다.'],
+        ['note', '두 번째 세트의 본은 직접 지정해 주세요(「자동 감지」는 첫 번째 세트만 대상입니다). 두 세트를 각각 다른 움직임・속도로 움직이는 기능은 아닙니다.'],
       ]},
       output: { id: 'output', nav: '생성・FX', title: '생성・업데이트와 FX Controller', blocks: [
         ['dl', [
-          ['프리뷰 (Preview)', 'Unity Editor에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성・업데이트하기 전까지 에셋이나 FX에 반영되지 않습니다.'],
-          ['생성 (Generate)', 'Animation Clip과 유라모후용 FX 레이어를 새로 만듭니다.'],
-          ['업데이트 (Update)', '이미 생성한 데이터에 현재 설정을 반영합니다.'],
+          ['미리보기', 'Unity Editor에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성・업데이트하기 전까지 에셋이나 FX에 반영되지 않습니다.'],
+          ['생성', 'Animation Clip과 유라모후용 FX 레이어를 새로 만듭니다.'],
+          ['업데이트', '이미 생성한 데이터에 현재 설정을 반영합니다.'],
           ['FX 자동 추가', '아바타의 FX Controller에 생성한 움직임을 재생하는 레이어를 추가합니다. 대기・제스처 연동 레이어는 Additive(Write Defaults ON 고정)이며, 아바타 본래의 움직임 위에 더해집니다.'],
-          ['저장 위치・업데이트 알림', '「Idle Motion」 → 「FX & Save Location」에서 설정합니다.'],
+          ['저장 위치・업데이트 알림', '「대기 모션」 → 「FX・저장 위치」에서 설정합니다.'],
         ]],
         ['note', 'Unity의 Undo로는 Animator Controller의 레이어를 완전히 되돌릴 수 없습니다. 생성 전에 표시되는 확인 목록을 보고 실행하고, 필요하면 백업해 두세요.', 'warn'],
         ['p', '제거: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>로 유라모후가 추가한 레이어를 FX에서 삭제할 수 있습니다.'],
       ]},
       faq: { id: 'faq', nav: '자주 묻는 질문', title: '자주 묻는 질문', blocks: [
         ['faq', [
-          ['PhysBone이 들어간 귀・꼬리에도 쓸 수 있나요?', '쓸 수 있습니다. 상태 표시줄의 「Check compatibility」로 PhysBone의 Is Animated 등을 확인할 수 있습니다. 흔들림을 PhysBone에 맡기고 싶을 때는 생성 방식을 「Physics-Friendly」로 해 주세요.'],
+          ['PhysBone이 들어간 귀・꼬리에도 쓸 수 있나요?', '쓸 수 있습니다. 상태 표시줄의 「호환성 확인」로 PhysBone의 Is Animated 등을 확인할 수 있습니다. 흔들림을 PhysBone에 맡기고 싶을 때는 생성 방식을 「물리에 맡기기」로 해 주세요.'],
           ['FaceEmo와 함께 쓸 수 있나요?', 'FaceEmo → 유라모후 순서로 생성해 주세요. FaceEmo를 다시 생성하면 FX가 새로 만들어지므로, 새 FX를 지정해서 유라모후도 다시 생성해 주세요.'],
-          ['툴을 업데이트한 뒤에는 무엇을 하면 되나요?', '임포트 후 「Update」를 실행하면 기존 출력에 수정 사항이 반영됩니다. 필요한 출력이 없으면 「Generate」를 실행해 주세요.'],
-          ['움직이는 방향이 이상해요', '대기 모션은 「Bones & Details」의 「Axis Correction」으로, 제스처 연동 포즈는 패드로 방향을 고쳐 주세요.'],
-          ['인터넷에 연결하나요?', '하루 한 번 최신 버전만 확인합니다. 프로젝트나 아바타 정보는 보내지 않습니다. 「FX & Save Location」에서 끌 수 있으며, 오프라인에서도 사용할 수 있습니다.'],
-          ['설정은 어디에 저장되나요?', '창의 설정은 프로젝트마다 마지막 한 세트를 저장합니다. 「Clear Settings」로 초기값으로 되돌릴 수 있습니다(생성한 애니메이션과 레이어는 삭제하지 않습니다).'],
+          ['툴을 업데이트한 뒤에는 무엇을 하면 되나요?', '임포트 후 「업데이트」를 실행하면 기존 출력에 수정 사항이 반영됩니다. 필요한 출력이 없으면 「생성」를 실행해 주세요.'],
+          ['움직이는 방향이 이상해요', '대기 모션은 「본・세부 조정」의 「방향 보정」으로, 제스처 연동 포즈는 패드로 방향을 고쳐 주세요.'],
+          ['인터넷에 연결하나요?', '하루 한 번 최신 버전만 확인합니다. 프로젝트나 아바타 정보는 보내지 않습니다. 「FX・저장 위치」에서 끌 수 있으며, 오프라인에서도 사용할 수 있습니다.'],
+          ['설정은 어디에 저장되나요?', '창의 설정은 프로젝트마다 마지막 한 세트를 저장합니다. 「설정 초기화」로 초기값으로 되돌릴 수 있습니다(생성한 애니메이션과 레이어는 삭제하지 않습니다).'],
         ]],
         ['p', '잘 되지 않을 때는 BOOTH 메시지로 문의해 주세요.'],
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
+          ['1.5.1', '', [
+            '제스처 연동 포즈에 「좌우 따로」 추가: 왼쪽 귀와 오른쪽 귀를 각각 설정',
+            '「왼쪽 귀만」「오른쪽 귀만」 추가',
+            '꼬리 속도 다이얼이 0%일 때 꼬리가 원래 위치로 돌아가서 멈추도록 변경',
+            '툴 화면 한국어 지원',
+          ]],
           ['1.5.0', '', [
-            '제스처 연동 포즈를 XYZ에서 패드 조작으로 변경(귀는 「Turn」 다이얼 포함)',
+            '제스처 연동 포즈를 XYZ에서 패드 조작으로 변경(귀는 「방향」 다이얼 포함)',
             '「제스처 중에는 대기 모션 정지」 추가(기본값 ON)',
             '제스처 연동 레이어를 Additive로 바꿔 아바타 본래의 흔들림・AFK 모션을 멈추지 않도록 변경',
             '누르는 정도(GestureWeight)에 따라 변하는 것을 Fist만으로 변경',
@@ -761,11 +782,11 @@ export const guides = {
           ]],
           ['1.3.1', '2026-10-28', [
             '표정 무효화 기능(Triturbo 등)과 함께 쓸 때 귀・꼬리 위치가 고정되던 문제 수정',
-            '제스처 연동 귀의 「Same / Opposite」가 일부 아바타에서 반대로 되던 문제 수정',
+            '제스처 연동 귀의 「같은 방향 / 반대 방향」가 일부 아바타에서 반대로 되던 문제 수정',
             '축・방향 선택지에 아바타에서의 실제 움직임 표시',
           ]],
           ['1.3.0', '2026-10-22', [
-            '새 스타일 「변덕(Whimsical)」 추가',
+            '새 스타일 「변덕스럽게」 추가',
             '좌우 동기일 때 한쪽 귀만 움직이는 비율을 설정 가능',
             '꼬리의 「흔들림 중심」과 「완급」 추가',
             '귀 방향 바꾸기・털기의 빈도 조정 가능',
@@ -798,10 +819,10 @@ export const guides = {
           ['1.1.2', '', [
             '화면 구성을 정리하고 세부 설정과 출력 설정을 접을 수 있게 변경',
             '생성 상태와 부족한 설정을 확인할 수 있는 상태 표시 추가',
-            'Gesture Link의 「Mix」를 「Per Part(부위별)」로 변경',
+            '제스처 연동의 「Mix」를 「부위별」로 변경',
           ]],
           ['1.1.1', '', [
-            '생성한 데이터를 갱신하는 「Update」 버튼 추가',
+            '생성한 데이터를 갱신하는 「업데이트」 버튼 추가',
             '0~100% 포즈의 프리뷰 조작 개선',
             '귀 좌우 설정에 「동기 / 미러」 추가',
           ]],
