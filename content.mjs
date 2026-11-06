@@ -163,7 +163,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
-          ['1.5.1', '', [
+          ['1.5.1', '2026-11-06', [
             '手勢連動のポーズで、左右の耳を別々に設定できる「左右別々」を追加',
             '「左耳だけ」「右耳だけ」を追加',
             '尻尾速度のダイヤルが 0% のとき、尻尾が元の位置に戻って止まるように',
@@ -363,7 +363,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
-          ['1.5.1', '', [
+          ['1.5.1', '2026-11-06', [
             'Added Separate L/R for Gesture Link poses: set the left and right ears on their own pads',
             'Added Left ear only and Right ear only',
             'With the tail speed dial at 0%, the tail returns to rest and stops',
@@ -563,7 +563,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
-          ['1.5.1', '', [
+          ['1.5.1', '2026-11-06', [
             '手勢連動姿勢新增「左右分開」，左右耳朵可以各自設定',
             '新增「只有左耳」「只有右耳」',
             '尾巴速度轉盤為 0% 時，尾巴會回到原位停下',
@@ -764,7 +764,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
-          ['1.5.1', '', [
+          ['1.5.1', '2026-11-06', [
             '제스처 연동 포즈에 「좌우 따로」 추가: 왼쪽 귀와 오른쪽 귀를 각각 설정',
             '「왼쪽 귀만」「오른쪽 귀만」 추가',
             '꼬리 속도 다이얼이 0%일 때 꼬리가 원래 위치로 돌아가서 멈추도록 변경',
