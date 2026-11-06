@@ -1,4 +1,4 @@
-// node build.mjs → index.html (ja) / en.html / zh.html
+// node build.mjs → index.html (ja) / en.html / zh.html / ko.html
 import { writeFileSync } from 'node:fs';
 import { meta, guides, order, images } from './content.mjs';
 
@@ -6,6 +6,7 @@ const pages = [
   ['ja', 'index.html', 'ja'],
   ['en', 'en.html', 'en'],
   ['zh-Hant', 'zh.html', 'zh-Hant'],
+  ['ko', 'ko.html', 'ko'],
 ];
 const esc = s => String(s).replace(/&(?!amp;|lt;|gt;|quot;|#)/g, '&amp;').replace(/"/g, '&quot;');
 const strip = s => String(s).replace(/<[^>]+>/g, '');

@@ -153,4 +153,13 @@ dialog#viewer .close { position: fixed; top: 12px; right: 16px; width: 40px; hei
   .terms div { grid-template-columns: 1fr; gap: 2px; }
   .sec.new { padding: 16px; }
   .brand span { display: none; }
+  .langs { flex-wrap: nowrap; gap: 0; }
+  .langs a { padding: 4px 7px; font-size: .82em; white-space: nowrap; }
+}
+@media (max-width: 380px) {
+  .bar { gap: 6px; }
+  .langs a { padding: 4px 5px; font-size: .76em; }
+}
+@media (max-width: 340px) {
+  .brand { font-size: 0; gap: 0; }
 }

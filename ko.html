@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>유라모후(ゆらもふ) 사용 가이드</title>
+<meta name="description" content="VRChat 아바타용 귀・꼬리 애니메이션 생성 툴 「ゆらもふ(유라모후)」의 사용 가이드입니다.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="유라모후(ゆらもふ) 사용 가이드">
+<meta property="og:description" content="VRChat 아바타용 귀・꼬리 애니메이션 생성 툴 「ゆらもふ(유라모후)」의 사용 가이드입니다.">
+<meta property="og:image" content="https://kuroneko11375.github.io/yuramofu-guide/assets/v150/main.jpg">
+<meta property="og:url" content="https://kuroneko11375.github.io/yuramofu-guide/ko.html">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ja" href="https://kuroneko11375.github.io/yuramofu-guide/">
+<link rel="alternate" hreflang="en" href="https://kuroneko11375.github.io/yuramofu-guide/en.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://kuroneko11375.github.io/yuramofu-guide/zh.html">
+<link rel="alternate" hreflang="ko" href="https://kuroneko11375.github.io/yuramofu-guide/ko.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
+<script src="gallery.js" defer></script>
+</head>
+<body id="top">
+<a class="skip" href="#main">본문으로 이동</a>
+<header class="bar"><a class="brand" href="#top"><img src="favicon.svg" alt="" width="28" height="28">ゆらもふ <span>v1.5.0</span></a><nav class="langs" aria-label="Language"><a href="index.html" hreflang="ja" lang="ja">日本語</a><a href="en.html" hreflang="en" lang="en">English</a><a href="zh.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="ko.html" aria-current="page" hreflang="ko" lang="ko">한국어</a></nav></header>
+<div class="hero">
+<div class="hero-copy"><p class="eyebrow">YURAMOFU · USER GUIDE</p><h1>귀는 쫑긋,<br>꼬리는 살랑.</h1><p class="lead">유라모후는 아바타의 귀・꼬리 본으로 대기 모션과 제스처 연동 애니메이션을 만드는 Unity 에디터 확장입니다. 프리뷰로 확인한 뒤 생성하며, FX Controller에 레이어를 추가하는 작업까지 자동으로 할 수 있습니다.</p>
+<div class="buttons"><a class="btn" href="#start">처음 설정하기</a><a class="btn ghost" href="https://booth.pm/ja/items/8229167" target="_blank" rel="noopener">BOOTH 상품 페이지 ↗</a></div>
+<p class="badge">풀 버전 v1.5.0 기준</p></div>
+<a class="hero-art zoom" href="assets/v150/main.jpg" data-caption="유라모후 메인 이미지"><img src="assets/v150/main.jpg" alt="유라모후 메인 이미지" width="1024" height="1024" fetchpriority="high"></a></div>
+<div class="layout">
+<nav class="toc" aria-label="목차"><p>목차</p><ol><li><a href="#new"><span class="num">★</span>v1.5.0 새 기능</a></li><li><a href="#start"><span class="num">01</span>시작하기</a></li><li><a href="#idle"><span class="num">02</span>대기 모션</a></li><li><a href="#gesture"><span class="num">03</span>제스처 연동</a></li><li><a href="#set2"><span class="num">04</span>두 번째 귀・꼬리</a></li><li><a href="#output"><span class="num">05</span>생성・FX</a></li><li><a href="#faq"><span class="num">06</span>자주 묻는 질문</a></li><li><a href="#log"><span class="num">07</span>업데이트 기록</a></li></ol></nav>
+<main id="main">
+<section id="new" class="sec new"><h2><span class="num">★</span>v1.5.0 새 기능</h2><p class="lead">제스처 연동 포즈를 숫자 입력 대신 패드로 정할 수 있게 되었습니다. 대기 모션과 겹치는 방식도 정리했습니다.</p>
+<div class="cards"><article class="card"><a class="zoom" href="assets/v150/ui_pad.png" data-caption="패드로 포즈 정하기"><img src="assets/v150/ui_pad.png" alt="패드로 포즈 정하기" width="810" height="436" loading="lazy" decoding="async"></a><h4>패드로 포즈 정하기</h4><p>귀는 「앞/뒤・닫힘/열림」, 꼬리는 「상하좌우」로 드래그만 하면 됩니다. 귀의 안쪽/바깥쪽 방향은 「Turn」 다이얼로 조정합니다. 본의 축 방향과 관계없이 아바타 기준 방향으로 움직입니다.</p></article><article class="card"><a class="zoom" href="assets/v150/ui_fx.png" data-caption="제스처 중에는 대기 모션 정지"><img src="assets/v150/ui_fx.png" alt="제스처 중에는 대기 모션 정지" width="810" height="184" loading="lazy" decoding="async"></a><h4>제스처 중에는 대기 모션 정지</h4><p>제스처로 움직이는 귀・꼬리는 그동안만 대기 모션이 멈춰서 포즈가 깔끔하게 보입니다(기본값 ON).</p></article></div>
+<ul class="list"><li>제스처 연동 레이어를 Additive로 바꿨습니다. 제스처를 하지 않는 동안에는 아바타 본래의 꼬리 흔들림, AFK 모션, 유라모후의 대기 모션을 멈추지 않습니다.</li><li>트리거를 누르는 정도(GestureWeight)에 따라 변하는 것은 Fist뿐입니다. 다른 제스처는 누르는 순간 100% 포즈가 됩니다.</li><li>기존 XYZ 설정은 그대로 쓸 수 있으며, XYZ 직접 입력도 「Direction」에 남아 있습니다.</li></ul>
+<p class="note warn">툴을 업데이트한 뒤, 기존 제스처 연동은 「Generate」 또는 「Update」를 실행하면 새 형식으로 바뀝니다.</p></section>
+<section id="start" class="sec"><h2><span class="num">01</span>시작하기</h2><p class="note">툴 화면은 한국어를 지원하지 않습니다. 이 가이드에서는 영어 화면의 이름을 「」로 표기합니다. 스크린샷은 일본어 화면입니다.</p>
+<p class="note">동작 환경: Unity 2022.3 LTS 이상(Windows판 Unity Editor). FX 자동 추가, 제스처 연동, 꼬리 속도 다이얼에는 VRChat SDK3 Avatars가 필요합니다. SDK가 없어도 기본 Animation Clip은 생성할 수 있습니다.</p>
+<ol class="steps"><li><h4>임포트해서 열기</h4><p>unitypackage를 프로젝트에 임포트하고 메뉴의 <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code>를 엽니다. 작업 전에 프로젝트를 백업하는 것을 권장합니다.</p></li><li><h4>아바타를 지정하고 「Auto Detect」</h4><p>Scene에 있는 아바타를 「Avatar」 칸에 넣고 「Auto Detect」를 누릅니다. 상태 표시줄의 귀・꼬리・FX가 ✓가 되면 준비 완료입니다. 검출 결과는 꼭 확인하고, 다르면 「Bones & Details」에서 다시 지정하세요.</p></li><li><h4>스타일과 강도 고르기</h4><p>「Idle Motion」 탭에서 모션 스타일과 강도를 고르고, 귀와 꼬리를 각각 조정합니다.</p></li><li><h4>프리뷰로 확인</h4><p>「Preview」로 Scene에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성하기 전까지 에셋이나 FX에 기록되지 않습니다.</p></li><li><h4>생성 / 업데이트</h4><p>처음에는 「Generate」, 이미 생성한 움직임을 바꿀 때는 「Update」를 누릅니다. 내보낼 파일과 추가・교체될 레이어 목록을 확인한 뒤 실행됩니다.</p></li></ol>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「Idle Motion」 탭(화면은 일본어)"><img src="assets/v150/ui_idle.png" alt="「Idle Motion」 탭(화면은 일본어)" width="810" height="698" loading="lazy" decoding="async"></a><figcaption>「Idle Motion」 탭(화면은 일본어)</figcaption></figure></section>
+<section id="idle" class="sec"><h2><span class="num">02</span>대기 모션(Idle Motion)</h2><h3>모션 스타일과 강도</h3>
+<ul class="chips"><li>얌전함 (Calm)</li><li>자연스러움 (Natural)</li><li>활발함 (Lively)</li><li>졸림 (Sleepy)</li><li>안절부절 (Nervous)</li><li>장난꾸러기 (Silly)</li><li>변덕 (Whimsical)</li></ul>
+<p>강도는 「Soft / Normal / Strong」(약하게・보통・강하게) 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. <strong>변덕(Whimsical)</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.</p>
+<figure class="shot "><a class="zoom" href="assets/v150/kimagure.jpg" data-caption="변덕 (Whimsical / きまぐれ)"><img src="assets/v150/kimagure.jpg" alt="변덕 (Whimsical / きまぐれ)" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>변덕 (Whimsical / きまぐれ)</figcaption></figure>
+<h3>귀</h3>
+<dl class="terms"><div><dt>귀 좌우 (Ear L/R)</dt><dd>자동(Auto) / 동기(Sync) / 비동기(Async). 동기일 때는 「Single-Ear Share」로 한쪽 귀만 쫑긋할 확률을 정할 수 있습니다.</dd></div><div><dt>움직임 종류</dt><dd>기본은 쫑긋하는 움직임뿐이지만, 「Ear Swivel」(천천히 바깥쪽으로 돌아가서 멈춤)과 「Ear Shake」(물기를 털듯이 흔듦)를 추가할 수 있습니다. 앞의 체크로 ON/OFF, 「Frequency (%)」로 비율을 정합니다.</dd></div></dl>
+<h3>꼬리</h3>
+<dl class="terms"><div><dt>움직임 (Motion)</dt><dd>연속 진자(Continuous) / 간헐적 흔들기(Intermittent).</dd></div><div><dt>진폭・기본 속도</dt><dd>1배는 한 주기 1.5초입니다.</dd></div><div><dt>유연함 (Suppleness %)</dt><dd>올릴수록 뿌리 쪽은 차분해지고, 흔들림이 물결처럼 끝으로 전해집니다. 0이면 기존과 같습니다.</dd></div><div><dt>흔들림 중심・완급 (Swing Center / Tempo Variation)</dt><dd>좌우 한쪽으로 치우쳐 흔들기 / 한 번 흔들 때마다 속도에 변화를 주기(Detailed Settings).</dd></div><div><dt>꼬리 속도 다이얼</dt><dd>「Generate Tail Speed Dial」을 ON으로 하면 VRChat 안에서 다이얼로 대기 중인 꼬리 속도를 바꿀 수 있습니다. 귀와 제스처 연동의 속도는 바뀌지 않습니다.</dd></div></dl>
+<h3>생성 방식 (Output mode)</h3>
+<dl class="terms"><div><dt>본마다 (Bake Chain, 권장)</dt><dd>체인 전체의 본에 키를 기록합니다. PhysBone이 없는 귀・꼬리용입니다.</dd></div><div><dt>물리에 맡기기 (Physics-Friendly, 대체)</dt><dd>뿌리만 움직이고 나머지 흔들림은 PhysBone에 맡깁니다. 키가 적고 부드러운 움직임이 됩니다.</dd></div></dl>
+<p class="note">움직이는 방향이 이상할 때는 「Bones & Details」의 「Axis Correction」으로 축을 고치세요. 보통은 기본 설정 그대로도 문제없습니다.</p></section>
+<section id="gesture" class="sec"><h2><span class="num">03</span>제스처 연동(Gesture Link・풀 버전)</h2><p class="lead">손(GestureLeft / GestureRight) → F2~F8 → 리액션 타입 → 귀・꼬리 순서로 설정합니다.</p>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_gesture.png" data-caption="「Gesture Link」 탭(F3 / Open, 화면은 일본어)"><img src="assets/v150/ui_gesture.png" alt="「Gesture Link」 탭(F3 / Open, 화면은 일본어)" width="810" height="924" loading="lazy" decoding="async"></a><figcaption>「Gesture Link」 탭(F3 / Open, 화면은 일본어)</figcaption></figure>
+<h3>리액션 타입</h3>
+<dl class="terms"><div><dt>없음 (None)</dt><dd>그 제스처에서는 귀・꼬리를 움직이지 않습니다.</dd></div><div><dt>포즈 (Pose)</dt><dd>패드로 정한 방향으로 귀・꼬리를 기울입니다. Fist는 트리거를 누르는 정도에 따라 0~100%로 변하고, 다른 제스처는 누르는 순간 100%가 됩니다.</dd></div><div><dt>연속 모션 (Continuous Motion)</dt><dd>그 제스처를 하는 동안 고른 스타일의 귀・꼬리 움직임을 반복합니다.</dd></div><div><dt>부위별 (Per Part)</dt><dd>귀와 꼬리에 각각 「없음 / 포즈 / 모션」을 지정합니다.</dd></div></dl>
+<h3>패드로 방향 정하기</h3>
+<div class="pads"><figure class="pad"><svg viewBox="0 0 350 230" role="img" aria-label="귀: 패드로 기울일 방향, 다이얼로 안쪽/바깥쪽 방향">
+<rect x="52" y="40" width="150" height="150" rx="12" class="face"/>
+<circle cx="127" cy="115" r="66" class="ring"/><circle cx="127" cy="115" r="33" class="ring"/>
+<line x1="58" y1="115" x2="196" y2="115" class="ring"/><line x1="127" y1="46" x2="127" y2="184" class="ring"/>
+<line x1="127" y1="115" x2="118" y2="70" style="stroke:var(--ear)" class="hand"/><circle cx="118" cy="70" r="9" style="fill:var(--ear)"/><circle cx="118" cy="70" r="3.5" fill="#fff"/>
+<text x="127" y="30" class="lbl b">앞</text><text x="127" y="214" class="lbl b">뒤</text>
+<text x="30" y="120" class="lbl b">닫힘</text><text x="224" y="120" class="lbl b">열림</text>
+<g transform="translate(298 112)">
+<circle r="34" class="dial"/><path d="M0 -26 A26 26 0 0 1 18.4 -18.4" class="arc" style="stroke:var(--ear)"/>
+<line x1="0" y1="0" x2="18.4" y2="-18.4" style="stroke:var(--ear)" class="hand"/><circle cx="18.4" cy="-18.4" r="4" style="fill:var(--ear)"/>
+<text y="-44" class="lbl b">방향</text><text x="-30" y="52" class="lbl s">안쪽</text><text x="30" y="52" class="lbl s">바깥쪽</text></g></svg><figcaption>귀: 패드로 기울일 방향, 다이얼로 안쪽/바깥쪽 방향</figcaption></figure><figure class="pad"><svg viewBox="0 0 250 230" role="img" aria-label="꼬리: 패드로 기울일 방향">
+<rect x="52" y="40" width="150" height="150" rx="12" class="face"/>
+<circle cx="127" cy="115" r="66" class="ring"/><circle cx="127" cy="115" r="33" class="ring"/>
+<line x1="58" y1="115" x2="196" y2="115" class="ring"/><line x1="127" y1="46" x2="127" y2="184" class="ring"/>
+<line x1="127" y1="115" x2="146" y2="84" style="stroke:var(--tail)" class="hand"/><circle cx="146" cy="84" r="9" style="fill:var(--tail)"/><circle cx="146" cy="84" r="3.5" fill="#fff"/>
+<text x="127" y="30" class="lbl b">위</text><text x="127" y="214" class="lbl b">아래</text>
+<text x="30" y="120" class="lbl b">좌</text><text x="224" y="120" class="lbl b">우</text>
+</svg><figcaption>꼬리: 패드로 기울일 방향</figcaption></figure></div>
+<ul class="list"><li>패드 중심에서 멀어질수록 크게 기울어집니다. 좌우는 아바타 본인이 본 방향입니다.</li><li>패드와 다이얼은 드래그로 조정하고, <strong>더블클릭하면 중앙(0)</strong>으로 돌아갑니다.</li><li>귀의 「Same」은 양쪽 귀가 좌우 대칭으로 같은 움직임, 「Opposite」는 다른 쪽 귀가 반대로 움직입니다.</li><li>XYZ로 직접 입력하고 싶을 때는 「Direction」을 엽니다. XYZ를 입력하면 패드를 다시 움직이기 전까지 XYZ 값이 사용됩니다.</li><li>Fist를 선택 중일 때는 「Pose Preview (%)」로 누르는 정도별 모습을 확인할 수 있습니다.</li></ul>
+<h3>제스처 중에는 대기 모션 정지</h3>
+<p>「FX Settings」에 있는 설정입니다(기본값 ON). 제스처로 움직이는 부위의 대기 모션을 그동안만 멈춥니다. OFF로 하면 제스처의 포즈・모션이 대기 모션 위에 겹쳐집니다. 대기와 제스처 연동 중 어느 쪽을 먼저 생성해도 FX 안의 레이어를 보고 자동으로 설정됩니다.</p>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_fx.png" data-caption="「FX Settings」(F2 / Fist, 화면은 일본어)"><img src="assets/v150/ui_fx.png" alt="「FX Settings」(F2 / Fist, 화면은 일본어)" width="810" height="184" loading="lazy" decoding="async"></a><figcaption>「FX Settings」(F2 / Fist, 화면은 일본어)</figcaption></figure>
+<p class="note">「Copy To...」로 선택 중인 제스처의 설정을 다른 제스처(또는 모든 제스처)에 복사할 수 있습니다. 표시 이름은 복사되지 않습니다.</p></section>
+<section id="set2" class="sec"><h2><span class="num">04</span>두 번째 귀・꼬리</h2><p>각 탭 위쪽의 「Enable second set」을 ON으로 하면 첫 번째/두 번째 세트를 전환하며 편집할 수 있습니다. 움직임과 속도는 공통이고, 축 보정만 세트별로 조정합니다. 생성・업데이트 시에는 활성화된 세트를 모두 출력합니다.</p>
+<figure class="shot "><a class="zoom" href="assets/v150/set2.jpg" data-caption="두 번째 귀・꼬리"><img src="assets/v150/set2.jpg" alt="두 번째 귀・꼬리" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>두 번째 귀・꼬리</figcaption></figure>
+<p class="note">두 번째 세트의 본은 직접 지정해 주세요(「Auto Detect」는 첫 번째 세트만 대상입니다). 두 세트를 각각 다른 움직임・속도로 움직이는 기능은 아닙니다.</p></section>
+<section id="output" class="sec"><h2><span class="num">05</span>생성・업데이트와 FX Controller</h2><dl class="terms"><div><dt>프리뷰 (Preview)</dt><dd>Unity Editor에서 움직임을 확인합니다. 프리뷰 중에 바꾼 내용은 생성・업데이트하기 전까지 에셋이나 FX에 반영되지 않습니다.</dd></div><div><dt>생성 (Generate)</dt><dd>Animation Clip과 유라모후용 FX 레이어를 새로 만듭니다.</dd></div><div><dt>업데이트 (Update)</dt><dd>이미 생성한 데이터에 현재 설정을 반영합니다.</dd></div><div><dt>FX 자동 추가</dt><dd>아바타의 FX Controller에 생성한 움직임을 재생하는 레이어를 추가합니다. 대기・제스처 연동 레이어는 Additive(Write Defaults ON 고정)이며, 아바타 본래의 움직임 위에 더해집니다.</dd></div><div><dt>저장 위치・업데이트 알림</dt><dd>「Idle Motion」 → 「FX & Save Location」에서 설정합니다.</dd></div></dl>
+<p class="note warn">Unity의 Undo로는 Animator Controller의 레이어를 완전히 되돌릴 수 없습니다. 생성 전에 표시되는 확인 목록을 보고 실행하고, 필요하면 백업해 두세요.</p>
+<p>제거: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>로 유라모후가 추가한 레이어를 FX에서 삭제할 수 있습니다.</p></section>
+<section id="faq" class="sec"><h2><span class="num">06</span>자주 묻는 질문</h2><details><summary>PhysBone이 들어간 귀・꼬리에도 쓸 수 있나요?</summary><p>쓸 수 있습니다. 상태 표시줄의 「Check compatibility」로 PhysBone의 Is Animated 등을 확인할 수 있습니다. 흔들림을 PhysBone에 맡기고 싶을 때는 생성 방식을 「Physics-Friendly」로 해 주세요.</p></details><details><summary>FaceEmo와 함께 쓸 수 있나요?</summary><p>FaceEmo → 유라모후 순서로 생성해 주세요. FaceEmo를 다시 생성하면 FX가 새로 만들어지므로, 새 FX를 지정해서 유라모후도 다시 생성해 주세요.</p></details><details><summary>툴을 업데이트한 뒤에는 무엇을 하면 되나요?</summary><p>임포트 후 「Update」를 실행하면 기존 출력에 수정 사항이 반영됩니다. 필요한 출력이 없으면 「Generate」를 실행해 주세요.</p></details><details><summary>움직이는 방향이 이상해요</summary><p>대기 모션은 「Bones & Details」의 「Axis Correction」으로, 제스처 연동 포즈는 패드로 방향을 고쳐 주세요.</p></details><details><summary>인터넷에 연결하나요?</summary><p>하루 한 번 최신 버전만 확인합니다. 프로젝트나 아바타 정보는 보내지 않습니다. 「FX & Save Location」에서 끌 수 있으며, 오프라인에서도 사용할 수 있습니다.</p></details><details><summary>설정은 어디에 저장되나요?</summary><p>창의 설정은 프로젝트마다 마지막 한 세트를 저장합니다. 「Clear Settings」로 초기값으로 되돌릴 수 있습니다(생성한 애니메이션과 레이어는 삭제하지 않습니다).</p></details>
+<p>잘 되지 않을 때는 BOOTH 메시지로 문의해 주세요.</p></section>
+<section id="log" class="sec"><h2><span class="num">07</span>업데이트 기록</h2><div class="log"><article><h3>v1.5.0</h3><ul><li>제스처 연동 포즈를 XYZ에서 패드 조작으로 변경(귀는 「Turn」 다이얼 포함)</li><li>「제스처 중에는 대기 모션 정지」 추가(기본값 ON)</li><li>제스처 연동 레이어를 Additive로 바꿔 아바타 본래의 흔들림・AFK 모션을 멈추지 않도록 변경</li><li>누르는 정도(GestureWeight)에 따라 변하는 것을 Fist만으로 변경</li></ul></article><article><h3>v1.4.0 <span>2026-11-02</span></h3><ul><li>꼬리에 「유연함 (%)」 추가</li><li>간헐적 흔들기 꼬리가 한쪽으로 한 번만 흔들리고 완전히 돌아오지 않던 문제 수정</li></ul></article><article><h3>v1.3.1 <span>2026-10-28</span></h3><ul><li>표정 무효화 기능(Triturbo 등)과 함께 쓸 때 귀・꼬리 위치가 고정되던 문제 수정</li><li>제스처 연동 귀의 「Same / Opposite」가 일부 아바타에서 반대로 되던 문제 수정</li><li>축・방향 선택지에 아바타에서의 실제 움직임 표시</li></ul></article><article><h3>v1.3.0 <span>2026-10-22</span></h3><ul><li>새 스타일 「변덕(Whimsical)」 추가</li><li>좌우 동기일 때 한쪽 귀만 움직이는 비율을 설정 가능</li><li>꼬리의 「흔들림 중심」과 「완급」 추가</li><li>귀 방향 바꾸기・털기의 빈도 조정 가능</li></ul></article><article><h3>v1.2.2 <span>2026-10-22</span></h3><ul><li>두 번째 세트 전환을 각 탭 위쪽으로 이동</li><li>F2~F8 버튼에 각 슬롯의 반응 표시</li><li>상태 표시줄을 탭별 표시로 정리</li></ul></article><article><h3>v1.2.1 <span>2026-10-01</span></h3><ul><li>프리뷰 부하 감소</li><li>선택 사항인 두 번째 귀・꼬리 지원</li></ul></article><article><h3>v1.2.0 <span>2026-09-27</span></h3><ul><li>대기 / 제스처 연동 UI 정리</li><li>대기 꼬리 속도 다이얼 추가</li></ul></article><article><h3>v1.1.4</h3><ul><li>프리뷰가 움직이지 않을 때 그 이유를 표시</li><li>진단 정보를 클립보드에 복사하는 기능 추가</li><li>업데이트 알림 기능 추가(하루 한 번 최신 버전 번호만 확인)</li></ul></article><article><h3>v1.1.3</h3><ul><li>생성 방식에 「물리에 맡기기(Physics-Friendly)」 추가</li><li>귀의 「방향 바꾸기」「털기」 추가</li><li>제스처 연동에 「다른 제스처로 복사」 추가</li><li>생성 전에 내보낼 파일과 FX 레이어를 목록으로 확인</li><li>파라미터 타입 불일치・PhysBone 제어 중 경고 추가</li></ul></article><article><h3>v1.1.2</h3><ul><li>화면 구성을 정리하고 세부 설정과 출력 설정을 접을 수 있게 변경</li><li>생성 상태와 부족한 설정을 확인할 수 있는 상태 표시 추가</li><li>Gesture Link의 「Mix」를 「Per Part(부위별)」로 변경</li></ul></article><article><h3>v1.1.1</h3><ul><li>생성한 데이터를 갱신하는 「Update」 버튼 추가</li><li>0~100% 포즈의 프리뷰 조작 개선</li><li>귀 좌우 설정에 「동기 / 미러」 추가</li></ul></article><article><h3>v1.1.0</h3><ul><li>표정 연동 UI를 F2~F8 슬롯 형식으로 정리</li><li>제거 시 생성한 Animation Clip 삭제 확인 추가</li></ul></article><article><h3>v1.0.x</h3><ul><li>귀・꼬리 대기 애니메이션 생성</li><li>실시간 프리뷰</li><li>FX Controller 자동 추가</li><li>VRC 제스처 연동</li><li>Uninstall from Active Avatar</li></ul></article></div></section>
+</main></div>
+<footer class="foot"><p>黒猫Dev · ゆらもふ v1.5.0 · 최종 업데이트 2026-11-03</p><p>이 페이지에는 툴 본체가 포함되어 있지 않습니다. 제품은 BOOTH에서 배포하고 있습니다.</p>
+<p><a href="https://booth.pm/ja/items/8229167" target="_blank" rel="noopener">BOOTH<span class="ext" aria-hidden="true">↗</span></a> · <a href="https://github.com/kuroneko11375/yuramofu-guide" target="_blank" rel="noopener">GitHub<span class="ext" aria-hidden="true">↗</span></a> · <a href="#top">↑ 맨 위로</a></p></footer>
+<dialog id="viewer" aria-label="이미지 확대"><button type="button" class="close" aria-label="닫기">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
+</body>
+</html>
