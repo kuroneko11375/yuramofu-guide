@@ -19,7 +19,7 @@
 
 export const meta = {
   version: '1.5.2',
-  updated: '2026-11-06',
+  updated: '2026-11-09',
   booth: 'https://booth.pm/ja/items/8229167',
   github: 'https://github.com/kuroneko11375/yuramofu-guide',
   site: 'https://kuroneko11375.github.io/yuramofu-guide/',
@@ -173,7 +173,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
-          ['1.5.2', '', [
+          ['1.5.2', '2026-11-09', [
             'FaceEmo を「WriteDefaults オフ（表情優先）」で適用しているときに警告を表示',
             '尻尾の動き「たまに」で、揺れが小さくなりながら自然に収まるように',
             '速度ダイヤルの追加で VRCEmote などの標準パラメータが消える問題を修正',
@@ -388,7 +388,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
-          ['1.5.2', '', [
+          ['1.5.2', '2026-11-09', [
             'Warns when FaceEmo is applied with "Disable WD (Expression Priority)"',
             'Tail set to Sometimes: swings now die down naturally',
             'Fixed the speed dial removing VRCEmote and other default parameters',
@@ -603,7 +603,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
-          ['1.5.2', '', [
+          ['1.5.2', '2026-11-09', [
             'FaceEmo 以「WriteDefaults オフ（表情優先）」套用時顯示警告',
             '尾巴動作「偶爾」的擺動會越來越小、自然停下',
             '修正加上速度轉盤時，VRCEmote 等預設參數會消失的問題',
@@ -819,7 +819,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
-          ['1.5.2', '', [
+          ['1.5.2', '2026-11-09', [
             'FaceEmo가 「WriteDefaults オフ（表情優先）」로 적용되어 있을 때 경고 표시',
             '꼬리 움직임 「가끔」의 흔들림이 점점 작아지며 자연스럽게 멈추도록',
             '속도 다이얼을 추가하면 VRCEmote 등 기본 파라미터가 사라지는 문제 수정',
