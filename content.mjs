@@ -18,7 +18,7 @@
 //   ['log', [[版, 日付, [項目…]], …]]
 
 export const meta = {
-  version: '1.5.1',
+  version: '1.5.2',
   updated: '2026-11-06',
   booth: 'https://booth.pm/ja/items/8229167',
   github: 'https://github.com/kuroneko11375/yuramofu-guide',
@@ -53,7 +53,7 @@ export const guides = {
       headline: '耳がぴくっと、<br>尻尾がゆらり。',
       lead: 'ゆらもふは、耳・尻尾のボーンから待機モーションやジェスチャー連動のアニメーションを作る Unity Editor 拡張です。プレビューで確かめてから生成し、FX Controller へのレイヤー追加まで自動で行えます。',
       start: 'はじめての設定', booth: 'BOOTH 商品ページ',
-      badge: '製品版 v1.5.1 に対応',
+      badge: '製品版 v1.5.2 に対応',
       imageAlt: 'ゆらもふのメイン画像',
     },
     pad: {
@@ -62,8 +62,17 @@ export const guides = {
       earCap: '耳：パッドで倒す向き、ダイヤルで向き（内／外）', tailCap: '尻尾：パッドで倒す向き',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.1 の新機能', title: 'v1.5.1 の新機能', blocks: [
-        ['lead', '手勢連動のポーズで、左右の耳を別々に動かせるようになりました。'],
+      new: { id: 'new', nav: 'v1.5.2 の新機能', title: 'v1.5.2 の新機能', blocks: [
+        ['lead', 'FaceEmo と併用したときの注意表示と、尻尾の動きの改善を追加しました。'],
+        ['list', [
+          'FaceEmo を「WriteDefaults オフ（表情優先）」で適用していると、ツール画面に警告が出るようになりました。耳・尻尾が埋まったり、ねじれたりする原因になります。警告が出たら、FaceEmo で「WriteDefaults 統一（ギミック優先）」を選び、「アバターに適用」をやり直してください。',
+          'FX に WriteDefaults オフのステートがあり、FaceEmo の設定だけでは直らない場合も、その旨を表示します。',
+          '尻尾の動きが「たまに」のとき、揺れの終わりでぴたっと止まらず、だんだん小さくなって自然に収まるようになりました。',
+          'Expressions Menu・Parameters を設定していない（VRChat 標準のままの）アバターに速度ダイヤルを追加すると、VRCEmote や表情用のパラメータが消えてしまう問題を修正しました。',
+        ]],
+        ['note', '尻尾の動きと速度ダイヤルの修正は、ツールを更新したあと「更新」を実行すると既存の出力に反映されます。', 'warn'],
+        ['h3', 'v1.5.1 の新機能'],
+        ['p', '手勢連動のポーズで、左右の耳を別々に動かせるようになりました。'],
         ['cards', [
           ['左右の耳を別々に', '「耳の左右動作」で「左右別々」を選ぶと、耳ごとにパッドと「向き」ダイヤルが出ます。アバターを正面から見た並び（Scene ビューと同じ向き）で、各パッドの上には耳のボーン名が出ます。パッドを外側へ動かすと耳が開きます。', 'ui_ear_separate.png'],
         ]],
@@ -164,6 +173,11 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
+          ['1.5.2', '', [
+            'FaceEmo を「WriteDefaults オフ（表情優先）」で適用しているときに警告を表示',
+            '尻尾の動き「たまに」で、揺れが小さくなりながら自然に収まるように',
+            '速度ダイヤルの追加で VRCEmote などの標準パラメータが消える問題を修正',
+          ]],
           ['1.5.1', '2026-11-06', [
             '手勢連動のポーズで、左右の耳を別々に設定できる「左右別々」を追加',
             '「左耳だけ」「右耳だけ」を追加',
@@ -254,7 +268,7 @@ export const guides = {
       headline: 'A twitch of the ears,<br>a sway of the tail.',
       lead: 'YuraMofu is a Unity Editor extension that builds idle and gesture-linked animations from your avatar\'s ear and tail bones. Check everything in the preview, then generate — it can add the layers to your FX Controller for you.',
       start: 'Getting started', booth: 'BOOTH product page',
-      badge: 'Covers product version v1.5.1',
+      badge: 'Covers product version v1.5.2',
       imageAlt: 'YuraMofu main image',
     },
     pad: {
@@ -263,8 +277,17 @@ export const guides = {
       earCap: 'Ears: the pad sets the tilt, the dial turns them in or out', tailCap: 'Tail: the pad sets the tilt',
     },
     sections: {
-      new: { id: 'new', nav: 'New in v1.5.1', title: 'New in v1.5.1', blocks: [
-        ['lead', 'Gesture poses can now move the left and right ears separately.'],
+      new: { id: 'new', nav: 'New in v1.5.2', title: 'New in v1.5.2', blocks: [
+        ['lead', 'A warning for FaceEmo setups and a more natural tail motion.'],
+        ['list', [
+          'If FaceEmo is applied with "Disable WD (Expression Priority)", the tool now shows a warning. This can make the ears and tail sink in or twist. In FaceEmo, choose "Unify WD (Gimmick Priority)" and apply it to the avatar again.',
+          'If the FX itself has Write Defaults OFF states, so changing FaceEmo alone will not help, the tool says so as well.',
+          'With the tail set to Sometimes, each swing now dies down gradually instead of stopping dead.',
+          'Fixed: adding the speed dial to an avatar that still uses VRChat\'s default Expressions Menu and Parameters removed VRCEmote and the face blend parameters.',
+        ]],
+        ['note', 'The tail motion and speed dial fixes reach existing output when you run Update after updating the tool.', 'warn'],
+        ['h3', 'New in v1.5.1'],
+        ['p', 'Gesture poses can now move the left and right ears separately.'],
         ['cards', [
           ['Each ear on its own', 'Choose Separate L/R under Ear L/R Behavior to get a pad and a Turn dial for each ear. The pads are laid out as the avatar is seen from the front (like the Scene view) and titled with the ear bone names; drag a pad outward to open that ear.', 'ui_ear_separate.png'],
         ]],
@@ -365,6 +388,11 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
+          ['1.5.2', '', [
+            'Warns when FaceEmo is applied with "Disable WD (Expression Priority)"',
+            'Tail set to Sometimes: swings now die down naturally',
+            'Fixed the speed dial removing VRCEmote and other default parameters',
+          ]],
           ['1.5.1', '2026-11-06', [
             'Added Separate L/R for Gesture Link poses: set the left and right ears on their own pads',
             'Added Left ear only and Right ear only',
@@ -455,7 +483,7 @@ export const guides = {
       headline: '耳朵輕輕一抖，<br>尾巴悠悠一晃。',
       lead: 'ゆらもふ 是 Unity Editor 擴充工具，能用角色的耳朵與尾巴骨骼，做出待機動作和手勢連動動畫。先預覽確認再生成，還能自動把圖層加進 FX Controller。',
       start: '開始設定', booth: 'BOOTH 商品頁',
-      badge: '對應產品版 v1.5.1',
+      badge: '對應產品版 v1.5.2',
       imageAlt: 'ゆらもふ 主視覺',
     },
     pad: {
@@ -464,8 +492,17 @@ export const guides = {
       earCap: '耳朵：2D 盤決定倒的方向，轉盤決定朝內／朝外', tailCap: '尾巴：2D 盤決定倒的方向',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.1 新功能', title: 'v1.5.1 新功能', blocks: [
-        ['lead', '手勢連動的姿勢現在可以讓左右耳朵分開動。'],
+      new: { id: 'new', nav: 'v1.5.2 新功能', title: 'v1.5.2 新功能', blocks: [
+        ['lead', '新增和 FaceEmo 併用時的提醒，並讓尾巴的動作更自然。'],
+        ['list', [
+          'FaceEmo 以「WriteDefaults オフ（表情優先）」套用時，工具畫面會顯示警告。這會讓耳朵和尾巴陷進去或扭轉。看到警告時，請在 FaceEmo 改選「WriteDefaults 統一（ギミック優先）」，再按一次「アバターに適用」。',
+          '如果 FX 本身有 WriteDefaults 關閉的狀態、只改 FaceEmo 的設定也無法解決，也會顯示說明。',
+          '尾巴動作設為「偶爾」時，擺動結束不會突然停住，而是越擺越小、自然停下。',
+          '修正在沒有設定 Expressions Menu・Parameters（維持 VRChat 預設）的角色加上速度轉盤時，VRCEmote 和表情用參數會消失的問題。',
+        ]],
+        ['note', '尾巴動作和速度轉盤的修正，更新工具後按「更新」就會套用到既有的輸出。', 'warn'],
+        ['h3', 'v1.5.1 新功能'],
+        ['p', '手勢連動的姿勢現在可以讓左右耳朵分開動。'],
         ['cards', [
           ['左右耳朵分開設定', '在「左右耳行為」選「左右分開」，每隻耳朵會各有一個 2D 盤和「轉向」轉盤。排列方式是從正面看角色的位置（和 Scene 視窗同方向），盤子上方會顯示耳朵的骨頭名稱；把 2D 盤往外拖，耳朵就會打開。', 'ui_ear_separate.png'],
         ]],
@@ -566,6 +603,11 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
+          ['1.5.2', '', [
+            'FaceEmo 以「WriteDefaults オフ（表情優先）」套用時顯示警告',
+            '尾巴動作「偶爾」的擺動會越來越小、自然停下',
+            '修正加上速度轉盤時，VRCEmote 等預設參數會消失的問題',
+          ]],
           ['1.5.1', '2026-11-06', [
             '手勢連動姿勢新增「左右分開」，左右耳朵可以各自設定',
             '新增「只有左耳」「只有右耳」',
@@ -656,7 +698,7 @@ export const guides = {
       headline: '귀는 쫑긋,<br>꼬리는 살랑.',
       lead: '유라모후는 아바타의 귀・꼬리 본으로 대기 모션과 제스처 연동 애니메이션을 만드는 Unity 에디터 확장입니다. 프리뷰로 확인한 뒤 생성하며, FX Controller에 레이어를 추가하는 작업까지 자동으로 할 수 있습니다.',
       start: '처음 설정하기', booth: 'BOOTH 상품 페이지',
-      badge: '풀 버전 v1.5.1 기준',
+      badge: '풀 버전 v1.5.2 기준',
       imageAlt: '유라모후 메인 이미지',
     },
     pad: {
@@ -665,8 +707,17 @@ export const guides = {
       earCap: '귀: 패드로 기울일 방향, 다이얼로 안쪽/바깥쪽 방향', tailCap: '꼬리: 패드로 기울일 방향',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.1 새 기능', title: 'v1.5.1 새 기능', blocks: [
-        ['lead', '제스처 연동 포즈에서 왼쪽 귀와 오른쪽 귀를 따로 움직일 수 있게 되었습니다.'],
+      new: { id: 'new', nav: 'v1.5.2 새 기능', title: 'v1.5.2 새 기능', blocks: [
+        ['lead', 'FaceEmo와 함께 쓸 때의 경고를 추가하고, 꼬리 움직임을 더 자연스럽게 했습니다.'],
+        ['list', [
+          'FaceEmo가 「WriteDefaults オフ（表情優先）」로 적용되어 있으면 툴 화면에 경고가 표시됩니다. 귀・꼬리가 파묻히거나 뒤틀리는 원인이 됩니다. 경고가 나오면 FaceEmo에서 「WriteDefaults 統一（ギミック優先）」을 선택하고 「アバターに適用」을 다시 실행해 주세요.',
+          'FX 자체에 WriteDefaults가 꺼진 스테이트가 있어서 FaceEmo 설정만으로는 고쳐지지 않는 경우에도 안내를 표시합니다.',
+          '꼬리 움직임이 「가끔」일 때, 흔들림이 끝날 때 뚝 멈추지 않고 점점 작아지며 자연스럽게 멈춥니다.',
+          'Expressions Menu・Parameters를 설정하지 않은(VRChat 기본 그대로인) 아바타에 속도 다이얼을 추가하면 VRCEmote와 표정용 파라미터가 사라지는 문제를 수정했습니다.',
+        ]],
+        ['note', '꼬리 움직임과 속도 다이얼 수정은 툴을 업데이트한 뒤 「업데이트」를 실행하면 기존 출력에 반영됩니다.', 'warn'],
+        ['h3', 'v1.5.1 새 기능'],
+        ['p', '제스처 연동 포즈에서 왼쪽 귀와 오른쪽 귀를 따로 움직일 수 있게 되었습니다.'],
         ['cards', [
           ['좌우 귀를 따로', '「귀 좌우 동작」에서 「좌우 따로」를 고르면 귀마다 패드와 「방향」 다이얼이 나타납니다. 아바터를 정면에서 본 배치(Scene 뷰와 같은 방향)이며, 패드 위에 귀 본 이름이 표시됩니다. 패드를 바깥쪽으로 움직이면 귀가 열립니다.', 'ui_ear_separate.png'],
         ]],
@@ -768,6 +819,11 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
+          ['1.5.2', '', [
+            'FaceEmo가 「WriteDefaults オフ（表情優先）」로 적용되어 있을 때 경고 표시',
+            '꼬리 움직임 「가끔」의 흔들림이 점점 작아지며 자연스럽게 멈추도록',
+            '속도 다이얼을 추가하면 VRCEmote 등 기본 파라미터가 사라지는 문제 수정',
+          ]],
           ['1.5.1', '2026-11-06', [
             '제스처 연동 포즈에 「좌우 따로」 추가: 왼쪽 귀와 오른쪽 귀를 각각 설정',
             '「왼쪽 귀만」「오른쪽 귀만」 추가',
