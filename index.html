@@ -41,11 +41,10 @@
 <p class="note warn">尻尾の動きと速度ダイヤルの修正は、ツールを更新したあと「更新」を実行すると既存の出力に反映されます。</p></section>
 <section id="start" class="sec"><h2><span class="num">01</span>はじめに</h2><p class="note">動作環境：Unity 2022.3 LTS 以降（Windows 版 Unity Editor）。FX への自動追加・ジェスチャー連動・尻尾速度のダイヤルには VRChat SDK3 Avatars が必要です。SDK がなくても基本の Animation Clip は生成できます。</p>
 <ol class="steps"><li><h4>インポートして開く</h4><p>unitypackage をプロジェクトへインポートし、メニューの <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code> を開きます。作業前にプロジェクトのバックアップをおすすめします。</p></li><li><h4>アバターを指定して「自動検出」</h4><p>Scene 上のアバターを「アバター」欄に入れて「自動検出」。状態欄の耳・尻尾・FX が ✓ になれば準備完了です。検出結果は必ず確認し、違っていれば「ボーン・詳細調整」で指定し直します。</p></li><li><h4>スタイルと強さを選ぶ</h4><p>「挙動・揺れ」タブでモーションスタイルと強さを選び、耳・尻尾それぞれを調整します。</p></li><li><h4>プレビューで確認</h4><p>「プレビュー」で Scene 上の動きを確認します。プレビュー中の変更は、生成するまでアセットや FX に書き込まれません。</p></li><li><h4>生成 / 更新</h4><p>初回は「生成」、生成済みの動きを変えるときは「更新」。書き出すファイルと追加・置き換えになるレイヤーの一覧を確認してから実行されます。</p></li></ol>
-<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「挙動・揺れ」タブ"><img src="assets/v150/ui_idle.png" alt="「挙動・揺れ」タブ" width="810" height="698" loading="lazy" decoding="async"></a><figcaption>「挙動・揺れ」タブ</figcaption></figure></section>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「挙動・揺れ」タブ"><img src="assets/v150/ui_idle.png" alt="「挙動・揺れ」タブ" width="704" height="674" loading="lazy" decoding="async"></a><figcaption>「挙動・揺れ」タブ</figcaption></figure></section>
 <section id="idle" class="sec"><h2><span class="num">02</span>挙動・揺れ（待機モーション）</h2><h3>モーションスタイルと強さ</h3>
 <ul class="chips"><li>おとなしい</li><li>自然</li><li>元気</li><li>眠そう</li><li>そわそわ</li><li>おちゃめ</li><li>きまぐれ</li></ul>
 <p>強さは「弱め／ふつう／強め」。スタイルを選ぶと、耳・尻尾の細かな設定がそのスタイルの値になります。値を手で変えると「調整済み」と表示され、「スタイルに戻す」で元に戻せます。<strong>きまぐれ</strong>は、長い静止の合間に片耳だけの短いぴくっと、中心が片側に寄った緩急のある尻尾の揺れが入るスタイルです。</p>
-<figure class="shot "><a class="zoom" href="assets/v150/kimagure.jpg" data-caption="きまぐれ"><img src="assets/v150/kimagure.jpg" alt="きまぐれ" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>きまぐれ</figcaption></figure>
 <h3>耳</h3>
 <dl class="terms"><div><dt>耳の左右</dt><dd>おまかせ／同期／非同期。同期のときは「片耳だけ動く割合」で、片方だけぴくっと動く確率を設定できます。</dd></div><div><dt>動きの種類</dt><dd>通常はぴくっと動くだけですが、「耳の向き変え」（ゆっくり外へ向けて止まる）、「耳をぶるっと振る」（水を払うように振る）、「聞き耳」（すっと立てて少し止まる）を追加できます。行頭のチェックで ON/OFF、「頻度 (%)」で割合を決めます。ON にした動きの合計は 100% までで、残りが「ぴくっ」になります。</dd></div></dl>
 <h3>尻尾</h3>

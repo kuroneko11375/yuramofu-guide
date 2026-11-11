@@ -29,9 +29,8 @@ export const meta = {
 export const images = {
   'main.jpg': [1024, 1024],
   'howto.jpg': [1600, 1600],
-  'kimagure.jpg': [1600, 1600],
   'set2.jpg': [1600, 1600],
-  'ui_idle.png': [810, 698],
+  'ui_idle.png': [704, 674],
   'ui_gesture.png': [810, 924],
   'ui_pad.png': [810, 436],
   'ui_fx.png': [810, 184],
@@ -106,7 +105,6 @@ export const guides = {
         ['h3', 'モーションスタイルと強さ'],
         ['chips', ['おとなしい', '自然', '元気', '眠そう', 'そわそわ', 'おちゃめ', 'きまぐれ']],
         ['p', '強さは「弱め／ふつう／強め」。スタイルを選ぶと、耳・尻尾の細かな設定がそのスタイルの値になります。値を手で変えると「調整済み」と表示され、「スタイルに戻す」で元に戻せます。<strong>きまぐれ</strong>は、長い静止の合間に片耳だけの短いぴくっと、中心が片側に寄った緩急のある尻尾の揺れが入るスタイルです。'],
-        ['img', 'kimagure.jpg', 'きまぐれ'],
         ['h3', '耳'],
         ['dl', [
           ['耳の左右', 'おまかせ／同期／非同期。同期のときは「片耳だけ動く割合」で、片方だけぴくっと動く確率を設定できます。'],
@@ -334,7 +332,6 @@ export const guides = {
         ['h3', 'Motion style and strength'],
         ['chips', ['Calm', 'Natural', 'Lively', 'Sleepy', 'Nervous', 'Silly', 'Whimsical']],
         ['p', 'Strength is Soft, Normal or Strong. Choosing a style sets the ear and tail details to that style\'s values. If you change values by hand, the style row shows "adjusted"; Restore style brings the style\'s values back. <strong>Whimsical</strong> adds long stillness broken by single, mostly one-ear twitches, and an off-centre tail swaying at an uneven tempo.'],
-        ['img', 'kimagure.jpg', 'Whimsical (きまぐれ)'],
         ['h3', 'Ears'],
         ['dl', [
           ['Ear L/R', 'Auto, Sync or Async. In Sync, Single-Ear Share sets how often only one ear twitches.'],
@@ -562,7 +559,6 @@ export const guides = {
         ['h3', '動作風格與強度'],
         ['chips', ['安靜', '自然', '活潑', '想睡', '緊張', '俏皮', '隨性']],
         ['p', '強度有「弱／普通／強」。選擇風格時，耳朵和尾巴的細部設定會套用該風格的數值。手動改了數值時會顯示「已調整」，按「恢復風格」可以回到風格的數值。<strong>隨性</strong>是在長時間靜止之間，夾雜單耳短促的抖動，以及中心偏向一側、快慢不一的尾巴擺動。'],
-        ['img', 'kimagure.jpg', '隨性（きまぐれ）'],
         ['h3', '耳朵'],
         ['dl', [
           ['左右耳', '自動／同步／非同步。同步時可用「單耳動作比例」設定只有一邊耳朵抖動的機率。'],
@@ -791,7 +787,6 @@ export const guides = {
         ['h3', '모션 스타일과 강도'],
         ['chips', ['얌전하게', '자연스럽게', '활발하게', '졸린 듯', '안절부절', '장난스럽게', '변덕스럽게']],
         ['p', '강도는 「약하게 / 보통 / 강하게」 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. 값을 직접 바꾸면 「조정됨」이 표시되며, 「스타일로 복원」으로 되돌릴 수 있습니다. <strong>변덕스럽게</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.'],
-        ['img', 'kimagure.jpg', '변덕스럽게 (きまぐれ)'],
         ['h3', '귀'],
         ['dl', [
           ['귀 좌우', '자동 / 동기 / 비동기. 동기일 때는 「한쪽 귀만 움직이는 비율」로 한쪽 귀만 쫑긋할 확률을 정할 수 있습니다.'],

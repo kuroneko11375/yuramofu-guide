@@ -41,11 +41,10 @@
 <p class="note warn">尾巴動作和速度轉盤的修正，更新工具後按「更新」就會套用到既有的輸出。</p></section>
 <section id="start" class="sec"><h2><span class="num">01</span>開始使用</h2><p class="note">環境需求：Unity 2022.3 LTS 以上（Windows 版 Unity Editor）。自動加入 FX、手勢連動與尾巴速度轉盤需要 VRChat SDK3 Avatars；沒有 SDK 也能生成基本的 Animation Clip。</p>
 <ol class="steps"><li><h4>匯入並開啟</h4><p>把 unitypackage 匯入專案，開啟選單 <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code>。建議先備份專案。</p></li><li><h4>指定角色並「自動偵測」</h4><p>把場景中的角色放進「角色」欄，按「自動偵測」。狀態列的耳朵、尾巴、FX 都打勾就準備好了。請確認偵測結果，有錯就到「骨骼與詳細調整」重新指定。</p></li><li><h4>選擇風格與強度</h4><p>在「待機擺動」分頁選擇動作風格和強度，再分別調整耳朵與尾巴。</p></li><li><h4>預覽確認</h4><p>按「預覽」在場景中確認動作。預覽中的修改，生成前不會寫入資產或 FX。</p></li><li><h4>生成／更新</h4><p>第一次按「生成」，之後要修改已生成的動作按「更新」。執行前會先列出要寫入的檔案和要新增或取代的圖層。</p></li></ol>
-<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「待機擺動」分頁（畫面為日文介面）"><img src="assets/v150/ui_idle.png" alt="「待機擺動」分頁（畫面為日文介面）" width="810" height="698" loading="lazy" decoding="async"></a><figcaption>「待機擺動」分頁（畫面為日文介面）</figcaption></figure></section>
+<figure class="shot "><a class="zoom" href="assets/v150/ui_idle.png" data-caption="「待機擺動」分頁（畫面為日文介面）"><img src="assets/v150/ui_idle.png" alt="「待機擺動」分頁（畫面為日文介面）" width="704" height="674" loading="lazy" decoding="async"></a><figcaption>「待機擺動」分頁（畫面為日文介面）</figcaption></figure></section>
 <section id="idle" class="sec"><h2><span class="num">02</span>待機擺動</h2><h3>動作風格與強度</h3>
 <ul class="chips"><li>安靜</li><li>自然</li><li>活潑</li><li>想睡</li><li>緊張</li><li>俏皮</li><li>隨性</li></ul>
 <p>強度有「弱／普通／強」。選擇風格時，耳朵和尾巴的細部設定會套用該風格的數值。手動改了數值時會顯示「已調整」，按「恢復風格」可以回到風格的數值。<strong>隨性</strong>是在長時間靜止之間，夾雜單耳短促的抖動，以及中心偏向一側、快慢不一的尾巴擺動。</p>
-<figure class="shot "><a class="zoom" href="assets/v150/kimagure.jpg" data-caption="隨性（きまぐれ）"><img src="assets/v150/kimagure.jpg" alt="隨性（きまぐれ）" width="1600" height="1600" loading="lazy" decoding="async"></a><figcaption>隨性（きまぐれ）</figcaption></figure>
 <h3>耳朵</h3>
 <dl class="terms"><div><dt>左右耳</dt><dd>自動／同步／非同步。同步時可用「單耳動作比例」設定只有一邊耳朵抖動的機率。</dd></div><div><dt>動作種類</dt><dd>預設只有抖動，可以再加上「耳朵轉向」（慢慢朝外轉後停住）、「甩耳」（像甩掉水一樣甩動）和「傾聽」（豎起耳朵停一下）。用行首的勾選框開關，「頻率（%）」決定比例。開啟的動作合計最多 100%，其餘為抖動。</dd></div></dl>
 <h3>尾巴</h3>
