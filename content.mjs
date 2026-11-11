@@ -19,7 +19,7 @@
 
 export const meta = {
   version: '1.5.3',
-  updated: '2026-11-09',
+  updated: '2026-11-11',
   booth: 'https://booth.pm/ja/items/8229167',
   github: 'https://github.com/kuroneko11375/yuramofu-guide',
   site: 'https://kuroneko11375.github.io/yuramofu-guide/',
@@ -182,7 +182,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
-          ['1.5.3', '', [
+          ['1.5.3', '2026-11-11', [
             '尻尾に 2 本目以降のボーンを追加（そろえる／左右対称／別々）',
             '耳の動きに「聞き耳」を追加',
             'スタイルの「調整済み」表示と「スタイルに戻す」を追加、「そわそわ」の耳の動きを変更',
@@ -410,7 +410,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
-          ['1.5.3', '', [
+          ['1.5.3', '2026-11-11', [
             'More than one tail chain (Together / Mirrored L/R / Separate)',
             'Added Listen to the ear motions',
             'Styles show "adjusted" with Restore style; new ear motion for Nervous',
@@ -638,7 +638,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
-          ['1.5.3', '', [
+          ['1.5.3', '2026-11-11', [
             '尾巴可以加入第 2 條以後的骨鏈（一致／左右對稱／各自擺動）',
             '耳朵動作新增「傾聽」',
             '風格顯示「已調整」並可「恢復風格」；「緊張」的耳朵動作改變',
@@ -867,7 +867,7 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
-          ['1.5.3', '', [
+          ['1.5.3', '2026-11-11', [
             '꼬리에 두 번째 이후의 본 체인 추가(함께 / 좌우 대칭 / 따로)',
             '귀 움직임에 「귀 기울이기」 추가',
             '스타일 「조정됨」 표시와 「스타일로 복원」 추가, 「안절부절」의 귀 움직임 변경',
