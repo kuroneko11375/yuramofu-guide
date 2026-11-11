@@ -18,7 +18,7 @@
 //   ['log', [[版, 日付, [項目…]], …]]
 
 export const meta = {
-  version: '1.5.2',
+  version: '1.5.3',
   updated: '2026-11-09',
   booth: 'https://booth.pm/ja/items/8229167',
   github: 'https://github.com/kuroneko11375/yuramofu-guide',
@@ -36,6 +36,9 @@ export const images = {
   'ui_pad.png': [810, 436],
   'ui_fx.png': [810, 184],
   'ui_ear_separate.png': [810, 290],
+  'tail_chains.gif': [810, 378],
+  'ui_tail_chains.png': [704, 372],
+  'ui_ear_listen.png': [676, 190],
 };
 
 export const order = ['new', 'start', 'idle', 'gesture', 'set2', 'output', 'faq', 'log'];
@@ -53,7 +56,7 @@ export const guides = {
       headline: '耳がぴくっと、<br>尻尾がゆらり。',
       lead: 'ゆらもふは、耳・尻尾のボーンから待機モーションやジェスチャー連動のアニメーションを作る Unity Editor 拡張です。プレビューで確かめてから生成し、FX Controller へのレイヤー追加まで自動で行えます。',
       start: 'はじめての設定', booth: 'BOOTH 商品ページ',
-      badge: '製品版 v1.5.2 に対応',
+      badge: '製品版 v1.5.3 に対応',
       imageAlt: 'ゆらもふのメイン画像',
     },
     pad: {
@@ -62,8 +65,24 @@ export const guides = {
       earCap: '耳：パッドで倒す向き、ダイヤルで向き（内／外）', tailCap: '尻尾：パッドで倒す向き',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.2 の新機能', title: 'v1.5.2 の新機能', blocks: [
-        ['lead', 'FaceEmo と併用したときの注意表示と、尻尾の動きの改善を追加しました。'],
+      new: { id: 'new', nav: 'v1.5.3 の新機能', title: 'v1.5.3 の新機能', blocks: [
+        ['lead', '尻尾に 2 本目以降のボーンを追加できるようになりました。ツインテールやエプロンのリボンなど、尻尾以外の揺れものもまとめて動かせます。'],
+        ['img', 'tail_chains.gif', 'エプロンの左右のリボンを 1 組の尻尾として動かした例（そろえる／左右対称／別々）'],
+        ['cards', [
+          ['尻尾のボーンを追加', '「ボーン・詳細調整」の「+ チェーン追加」で 2 本目以降を追加します。強さ・速さなどの設定はすべてのチェーンで共通です。2 本以上あるときは「複数チェーンの動き」で、<strong>そろえる</strong>（同じ向きに揺れる）／<strong>左右対称</strong>（1 本目と鏡写し）／<strong>別々</strong>（それぞれのタイミング）を選びます。', 'ui_tail_chains.png'],
+          ['耳の「聞き耳」', 'たまに耳をすっと立て、少し止まってから戻します。向き変え・ぶるっと振ると同じく、行頭のチェックと「頻度 (%)」で設定します。ON にした動きの合計は 100% までで、残りが「ぴくっ」になります。', 'ui_ear_listen.png'],
+        ]],
+        ['list', [
+          'スタイルを選んだあとに値を手で変えると、スタイルの横に「調整済み」と表示されます。「スタイルに戻す」でスタイルの値に戻せます。別のスタイルを選ぶときは、調整した内容を上書きしてよいか確認します。',
+          '各スタイル本来のリズムが常に使われるようになりました。「活発さ」はスタイルのリズムを基準に速く・遅くします。「そわそわ」は、耳を立てて左右交互に外を見る動きになりました。',
+          'アバターを指定すると、自動でボーンを検出するようになりました。',
+          '生成・更新前の確認画面にも、FaceEmo の WriteDefaults についての注意を表示します。',
+          'アンインストール前に、削除する内容の一覧を確認できるようになりました。尻尾速度のダイヤル（FX パラメーター・メニュー項目）と、ジェスチャー中に待機を止めるための Animation Clip もあわせて削除します。',
+          'ツール画面（日本語）の「手勢」を「ジェスチャー」に統一しました。',
+        ]],
+        ['note', '既存の出力に反映するには、ツールを更新したあと「更新」を実行してください。', 'warn'],
+        ['h3', 'v1.5.2 の新機能'],
+        ['p', 'FaceEmo と併用したときの注意表示と、尻尾の動きの改善を追加しました。'],
         ['list', [
           'FaceEmo を「WriteDefaults オフ（表情優先）」で適用していると、ツール画面に警告が出るようになりました。耳・尻尾が埋まったり、ねじれたりする原因になります。警告が出たら、FaceEmo で「WriteDefaults 統一（ギミック優先）」を選び、「アバターに適用」をやり直してください。',
           'FX に WriteDefaults オフのステートがあり、FaceEmo の設定だけでは直らない場合も、その旨を表示します。',
@@ -71,20 +90,9 @@ export const guides = {
           'Expressions Menu・Parameters を設定していない（VRChat 標準のままの）アバターに速度ダイヤルを追加すると、VRCEmote や表情用のパラメータが消えてしまう問題を修正しました。',
         ]],
         ['note', '尻尾の動きと速度ダイヤルの修正は、ツールを更新したあと「更新」を実行すると既存の出力に反映されます。', 'warn'],
-        ['h3', 'v1.5.1 の新機能'],
-        ['p', '手勢連動のポーズで、左右の耳を別々に動かせるようになりました。'],
-        ['cards', [
-          ['左右の耳を別々に', '「耳の左右動作」で「左右別々」を選ぶと、耳ごとにパッドと「向き」ダイヤルが出ます。アバターを正面から見た並び（Scene ビューと同じ向き）で、各パッドの上には耳のボーン名が出ます。パッドを外側へ動かすと耳が開きます。', 'ui_ear_separate.png'],
-        ]],
-        ['list', [
-          '「左耳だけ」「右耳だけ」を追加。片方の耳だけを動かし、もう片方は元の位置のままにします。',
-          '尻尾速度のダイヤルを 0% にすると、途中の角度で固まらず、尻尾が元の位置に戻って止まるようになりました。',
-          'ツール画面が韓国語（한국어）に対応。画面右上の「KO」で切り替えます。',
-        ]],
-        ['note', '速度ダイヤルの変更は、ツールを更新したあと「更新」を実行すると既存の出力に反映されます。', 'warn'],
       ]},
       start: { id: 'start', nav: 'はじめに', title: 'はじめに', blocks: [
-        ['note', '動作環境：Unity 2022.3 LTS 以降（Windows 版 Unity Editor）。FX への自動追加・手勢連動・尻尾速度のダイヤルには VRChat SDK3 Avatars が必要です。SDK がなくても基本の Animation Clip は生成できます。'],
+        ['note', '動作環境：Unity 2022.3 LTS 以降（Windows 版 Unity Editor）。FX への自動追加・ジェスチャー連動・尻尾速度のダイヤルには VRChat SDK3 Avatars が必要です。SDK がなくても基本の Animation Clip は生成できます。'],
         ['steps', [
           ['インポートして開く', 'unitypackage をプロジェクトへインポートし、メニューの <code>黒猫Dev → YuraMofu (ゆらもふ) → Open Window</code> を開きます。作業前にプロジェクトのバックアップをおすすめします。'],
           ['アバターを指定して「自動検出」', 'Scene 上のアバターを「アバター」欄に入れて「自動検出」。状態欄の耳・尻尾・FX が ✓ になれば準備完了です。検出結果は必ず確認し、違っていれば「ボーン・詳細調整」で指定し直します。'],
@@ -97,20 +105,21 @@ export const guides = {
       idle: { id: 'idle', nav: '挙動・揺れ（待機）', title: '挙動・揺れ（待機モーション）', blocks: [
         ['h3', 'モーションスタイルと強さ'],
         ['chips', ['おとなしい', '自然', '元気', '眠そう', 'そわそわ', 'おちゃめ', 'きまぐれ']],
-        ['p', '強さは「弱め／ふつう／強め」。スタイルを選ぶと、耳・尻尾の細かな設定がそのスタイルの値になります。<strong>きまぐれ</strong>は、長い静止の合間に片耳だけの短いぴくっと、中心が片側に寄った緩急のある尻尾の揺れが入るスタイルです。'],
+        ['p', '強さは「弱め／ふつう／強め」。スタイルを選ぶと、耳・尻尾の細かな設定がそのスタイルの値になります。値を手で変えると「調整済み」と表示され、「スタイルに戻す」で元に戻せます。<strong>きまぐれ</strong>は、長い静止の合間に片耳だけの短いぴくっと、中心が片側に寄った緩急のある尻尾の揺れが入るスタイルです。'],
         ['img', 'kimagure.jpg', 'きまぐれ'],
         ['h3', '耳'],
         ['dl', [
           ['耳の左右', 'おまかせ／同期／非同期。同期のときは「片耳だけ動く割合」で、片方だけぴくっと動く確率を設定できます。'],
-          ['動きの種類', '通常はぴくっと動くだけですが、「耳の向き変え」（ゆっくり外へ向けて止まる）と「耳をぶるっと振る」（水を払うように振る）を追加できます。行頭のチェックで ON/OFF、「頻度 (%)」で割合を決めます。'],
+          ['動きの種類', '通常はぴくっと動くだけですが、「耳の向き変え」（ゆっくり外へ向けて止まる）、「耳をぶるっと振る」（水を払うように振る）、「聞き耳」（すっと立てて少し止まる）を追加できます。行頭のチェックで ON/OFF、「頻度 (%)」で割合を決めます。ON にした動きの合計は 100% までで、残りが「ぴくっ」になります。'],
         ]],
         ['h3', '尻尾'],
         ['dl', [
+          ['ボーン', '「+ チェーン追加」で 2 本目以降のボーン（ツインテール・リボンなど）を追加できます。「複数チェーンの動き」で、そろえる／左右対称／別々を選びます。'],
           ['動き', '連続振り子／間欠振り。'],
           ['振幅・基本速度', '1 倍は 1 周期 1.5 秒です。'],
           ['しなやかさ (%)', '上げるほど根元が落ち着き、揺れが波のように先へ伝わります。0 で従来どおり。'],
           ['振れの中心・揺れの緩急', '左右どちらかに寄せて揺らす／1 回ごとの速さにばらつきを付ける（詳細調整）。'],
-          ['尻尾速度のダイヤル', '「尻尾速度のダイヤルを生成」を ON にすると、VRChat 内のダイヤルで待機中の尻尾の速さを変えられます。0% にすると尻尾は元の位置に戻って止まります。耳や手勢連動の速さは変わりません。'],
+          ['尻尾速度のダイヤル', '「尻尾速度のダイヤルを生成」を ON にすると、VRChat 内のダイヤルで待機中の尻尾の速さを変えられます。0% にすると尻尾は元の位置に戻って止まります。耳やジェスチャー連動の速さは変わりません。'],
         ]],
         ['h3', '生成方式'],
         ['dl', [
@@ -119,14 +128,14 @@ export const guides = {
         ]],
         ['note', '動く方向がおかしいときは「ボーン・詳細調整」の方向補正で軸を直します。通常は初期設定のままで問題ありません。'],
       ]},
-      gesture: { id: 'gesture', nav: '手勢連動', title: '手勢連動（Gesture Link・製品版）', blocks: [
+      gesture: { id: 'gesture', nav: 'ジェスチャー連動', title: 'ジェスチャー連動（Gesture Link・製品版）', blocks: [
         ['lead', '手（GestureLeft / GestureRight）→ F2～F8 → リアクションタイプ → 耳・尻尾の順に設定します。'],
-        ['img', 'ui_gesture.png', '「手勢連動」タブ（F3 / Open）'],
+        ['img', 'ui_gesture.png', '「ジェスチャー連動」タブ（F3 / Open）'],
         ['h3', 'リアクションタイプ'],
         ['dl', [
-          ['なし', 'その手勢では耳・尻尾を動かしません。'],
-          ['ポーズ', 'パッドで決めた向きへ耳・尻尾を倒します。Fist はトリガーの押し具合で 0～100% に変化し、他の手勢は押した瞬間に 100% になります。'],
-          ['連続モーション', 'その手勢の間、選んだスタイルの耳・尻尾の動きを繰り返します。'],
+          ['なし', 'そのジェスチャーでは耳・尻尾を動かしません。'],
+          ['ポーズ', 'パッドで決めた向きへ耳・尻尾を倒します。Fist はトリガーの押し具合で 0～100% に変化し、他のジェスチャーは押した瞬間に 100% になります。'],
+          ['連続モーション', 'そのジェスチャーの間、選んだスタイルの耳・尻尾の動きを繰り返します。'],
           ['部位別', '耳と尻尾それぞれに「なし／ポーズ／モーション」を割り当てます。'],
         ]],
         ['h3', 'パッドで向きを決める'],
@@ -139,9 +148,9 @@ export const guides = {
           'Fist を選択中は「ポーズのプレビュー (%)」で押し具合ごとの見え方を確認できます。',
         ]],
         ['h3', 'ジェスチャー中は待機を止める'],
-        ['p', '「FX 設定」にある設定です（初期値 ON）。ジェスチャーで動かしている部位の待機モーションを、その間だけ止めます。OFF にすると、ジェスチャーのポーズ・モーションが待機モーションの上に重なります。待機・手勢連動のどちらを先に生成しても、FX 内のレイヤーから自動で設定されます。'],
+        ['p', '「FX 設定」にある設定です（初期値 ON）。ジェスチャーで動かしている部位の待機モーションを、その間だけ止めます。OFF にすると、ジェスチャーのポーズ・モーションが待機モーションの上に重なります。待機・ジェスチャー連動のどちらを先に生成しても、FX 内のレイヤーから自動で設定されます。'],
         ['img', 'ui_fx.png', 'FX 設定（F2 / Fist）'],
-        ['note', '「他の手勢へコピー」で、選択中の手勢の設定を別の手勢（またはすべての手勢）へコピーできます。表示名はコピーされません。'],
+        ['note', '「他のジェスチャーへコピー」で、選択中のジェスチャーの設定を別のジェスチャー（またはすべてのジェスチャー）へコピーできます。表示名はコピーされません。'],
       ]},
       set2: { id: 'set2', nav: '2組目の耳・尻尾', title: '2組目の耳・尻尾', blocks: [
         ['p', '各タブ上部の「2組目を使用」を ON にすると、1組目／2組目を切り替えて編集できます。動き・速度は共通で、軸補正だけを組ごとに調整します。生成・更新では有効な両組を出力します。'],
@@ -153,18 +162,18 @@ export const guides = {
           ['プレビュー', 'Unity Editor 上で動きを確認します。プレビュー中の変更は、生成・更新するまでアセットや FX に反映されません。'],
           ['生成', 'Animation Clip と、ゆらもふ用の FX レイヤーを新しく作ります。'],
           ['更新', '生成済みのデータへ今の設定を反映します。'],
-          ['FX に自動追加', 'アバターの FX Controller に、生成した動きを再生するレイヤーを追加します。待機・手勢連動のレイヤーは Additive（Write Defaults ON 固定）で、アバター本来の揺れの上に加算されます。'],
+          ['FX に自動追加', 'アバターの FX Controller に、生成した動きを再生するレイヤーを追加します。待機・ジェスチャー連動のレイヤーは Additive（Write Defaults ON 固定）で、アバター本来の揺れの上に加算されます。'],
           ['保存先・更新通知', '「挙動・揺れ」→「FX・保存先」で設定します。'],
         ]],
         ['note', 'Unity の Undo では Animator Controller のレイヤーを完全には戻せません。生成前に表示される確認一覧を見てから実行し、必要ならバックアップを取ってください。', 'warn'],
-        ['p', 'アンインストール：<code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code> で、ゆらもふが追加したレイヤーを FX から削除できます。'],
+        ['p', 'アンインストール：<code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code> を実行すると、削除する内容の一覧が表示されます。確認後、ゆらもふが追加したレイヤー・パラメーター・メニュー項目を削除します。'],
       ]},
       faq: { id: 'faq', nav: 'よくある質問', title: 'よくある質問', blocks: [
         ['faq', [
           ['PhysBone が入った耳・尻尾でも使えますか？', '使えます。状態欄の「互換性を確認」で PhysBone の Is Animated などを確認できます。揺れを PhysBone に任せたいときは生成方式を「物理まかせ」にしてください。'],
           ['FaceEmo と一緒に使えますか？', 'FaceEmo → ゆらもふの順で生成してください。FaceEmo を再生成すると FX が作り直されるので、新しい FX を指定してゆらもふも再生成してください。'],
           ['ツールを更新したあと、何をすればいいですか？', 'インポート後に「更新」を実行すると、既存の出力に修正が反映されます。必要な出力がない場合は「生成」を実行してください。'],
-          ['動く方向がおかしいです', '待機モーションは「ボーン・詳細調整」の方向補正、手勢連動のポーズはパッドで向きを直してください。'],
+          ['動く方向がおかしいです', '待機モーションは「ボーン・詳細調整」の方向補正、ジェスチャー連動のポーズはパッドで向きを直してください。'],
           ['Play Mode や VRChat で、耳が頭に埋まる・尻尾がねじれる・動きが固まります', 'FX の中で Write Defaults の ON / OFF が混ざっていると起こります。FaceEmo やフェイストラッキングの表情無効化機能（Triturbo の拡張など）が原因になることが多く、ゆらもふの待機モーション（Write Defaults ON が必要）の姿勢が崩れます。ボーンや方向の設定を変えても直りません。原因になっていそうなギミックを一時的に外して Play Mode で確認し、FX の Write Defaults を統一してください。FaceEmo を使う場合は、統一したうえで FaceEmo → ゆらもふの順で生成してください。直らない場合は <code>黒猫Dev → YuraMofu (ゆらもふ) → Copy Diagnostics</code> の結果を添えて BOOTH のメッセージでご連絡ください。'],
           ['インターネットに接続しますか？', '1 日 1 回、最新バージョンの確認だけを行います。プロジェクトやアバターの情報は送信しません。「FX・保存先」から無効にでき、オフラインでも使えます。'],
           ['設定はどこに保存されますか？', 'ウィンドウの設定は、プロジェクトごとに最後の 1 組を保存します。「設定をクリア」で初期値に戻せます（生成済みのアニメーションやレイヤーは削除しません）。'],
@@ -173,21 +182,29 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新履歴', title: '更新履歴', blocks: [
         ['log', [
+          ['1.5.3', '', [
+            '尻尾に 2 本目以降のボーンを追加（そろえる／左右対称／別々）',
+            '耳の動きに「聞き耳」を追加',
+            'スタイルの「調整済み」表示と「スタイルに戻す」を追加、「そわそわ」の耳の動きを変更',
+            'アバターを指定したときにボーンを自動検出',
+            '生成・更新前の確認画面に FaceEmo の注意を表示',
+            'アンインストール前に削除内容を確認し、速度ダイヤルの項目も削除',
+          ]],
           ['1.5.2', '2026-11-09', [
             'FaceEmo を「WriteDefaults オフ（表情優先）」で適用しているときに警告を表示',
             '尻尾の動き「たまに」で、揺れが小さくなりながら自然に収まるように',
             '速度ダイヤルの追加で VRCEmote などの標準パラメータが消える問題を修正',
           ]],
           ['1.5.1', '2026-11-06', [
-            '手勢連動のポーズで、左右の耳を別々に設定できる「左右別々」を追加',
+            'ジェスチャー連動のポーズで、左右の耳を別々に設定できる「左右別々」を追加',
             '「左耳だけ」「右耳だけ」を追加',
             '尻尾速度のダイヤルが 0% のとき、尻尾が元の位置に戻って止まるように',
             'ツール画面の韓国語（한국어）に対応',
           ]],
           ['1.5.0', '', [
-            '手勢連動のポーズを XYZ からパッド操作に変更（耳は「向き」ダイヤル付き）',
+            'ジェスチャー連動のポーズを XYZ からパッド操作に変更（耳は「向き」ダイヤル付き）',
             '「ジェスチャー中は待機を止める」を追加（初期値 ON）',
-            '手勢連動レイヤーを Additive に変更し、アバター本来の揺れ・AFK モーションを止めないように',
+            'ジェスチャー連動レイヤーを Additive に変更し、アバター本来の揺れ・AFK モーションを止めないように',
             '押し具合（GestureWeight）で変化するのを Fist だけに変更',
           ]],
           ['1.4.0', '2026-11-02', [
@@ -196,7 +213,7 @@ export const guides = {
           ]],
           ['1.3.1', '2026-10-28', [
             '表情無効化機能（Triturbo など）との併用時に、耳・尻尾の位置が固定される問題を修正',
-            '手勢連動の耳「同方向／反対方向」が一部のアバターで逆になっていた問題を修正',
+            'ジェスチャー連動の耳「同方向／反対方向」が一部のアバターで逆になっていた問題を修正',
             '軸・方向の選択肢に、アバターでの実際の動きを表示',
           ]],
           ['1.3.0', '2026-10-22', [
@@ -215,7 +232,7 @@ export const guides = {
             '任意の2組目の耳・尻尾に対応',
           ]],
           ['1.2.0', '2026-09-27', [
-            '待機／手勢連動の UI を整理',
+            '待機／ジェスチャー連動の UI を整理',
             '待機尻尾の速度ダイヤルを追加',
           ]],
           ['1.1.4', '', [
@@ -226,7 +243,7 @@ export const guides = {
           ['1.1.3', '', [
             '生成方式に「物理まかせ」を追加',
             '耳の「向き変え」「ぶるっと振る」を追加',
-            '手勢連動に「他の手勢へコピー」を追加',
+            'ジェスチャー連動に「他のジェスチャーへコピー」を追加',
             '生成前に書き出すファイルと FX レイヤーを一覧で確認',
             'パラメータの型違い・PhysBone 制御下の警告を追加',
           ]],
@@ -268,7 +285,7 @@ export const guides = {
       headline: 'A twitch of the ears,<br>a sway of the tail.',
       lead: 'YuraMofu is a Unity Editor extension that builds idle and gesture-linked animations from your avatar\'s ear and tail bones. Check everything in the preview, then generate — it can add the layers to your FX Controller for you.',
       start: 'Getting started', booth: 'BOOTH product page',
-      badge: 'Covers product version v1.5.2',
+      badge: 'Covers product version v1.5.3',
       imageAlt: 'YuraMofu main image',
     },
     pad: {
@@ -277,8 +294,23 @@ export const guides = {
       earCap: 'Ears: the pad sets the tilt, the dial turns them in or out', tailCap: 'Tail: the pad sets the tilt',
     },
     sections: {
-      new: { id: 'new', nav: 'New in v1.5.2', title: 'New in v1.5.2', blocks: [
-        ['lead', 'A warning for FaceEmo setups and a more natural tail motion.'],
+      new: { id: 'new', nav: 'New in v1.5.3', title: 'New in v1.5.3', blocks: [
+        ['lead', 'The tail can now take more than one bone chain, so twin tails, apron ribbons and other swaying parts can move together.'],
+        ['img', 'tail_chains.gif', 'Both apron ribbons driven as one tail (Together / Mirrored L/R / Separate)'],
+        ['cards', [
+          ['More tail chains', 'Add chains with + Add Chain under Bones & Details. Strength, speed and the other settings are shared by every chain. With two or more, Multiple Chains chooses how they move: <strong>Together</strong> (same direction), <strong>Mirrored L/R</strong> (mirror image of the first) or <strong>Separate</strong> (own timing).', 'ui_tail_chains.png'],
+          ['Listen', 'Now and then the ears draw up, hold for a moment and settle, as if listening for something. Set it like Swivel and Shake, with the checkbox and Frequency (%). The enabled moves share up to 100%; the rest are twitches.', 'ui_ear_listen.png'],
+        ]],
+        ['list', [
+          'If you change values after choosing a style, the style row shows "adjusted". Restore style brings back the style\'s values, and choosing another style asks before overwriting your adjustments.',
+          'Each style now always uses its own rhythm, and Activity speeds it up or slows it down relative to that. Nervous now perks the ears up and has them take turns looking outward.',
+          'Bones are detected automatically when you assign an avatar.',
+          'The confirmation before Generate and Update also shows the FaceEmo Write Defaults warning.',
+          'Uninstall now lists what it will remove and asks first. It also removes the tail speed dial (FX parameters and menu item) and the clips used to pause idle motion during gestures.',
+        ]],
+        ['note', 'After updating the tool, run Update to apply the changes to existing output.', 'warn'],
+        ['h3', 'New in v1.5.2'],
+        ['p', 'A warning for FaceEmo setups and a more natural tail motion.'],
         ['list', [
           'If FaceEmo is applied with "Disable WD (Expression Priority)", the tool now shows a warning. This can make the ears and tail sink in or twist. In FaceEmo, choose "Unify WD (Gimmick Priority)" and apply it to the avatar again.',
           'If the FX itself has Write Defaults OFF states, so changing FaceEmo alone will not help, the tool says so as well.',
@@ -286,17 +318,6 @@ export const guides = {
           'Fixed: adding the speed dial to an avatar that still uses VRChat\'s default Expressions Menu and Parameters removed VRCEmote and the face blend parameters.',
         ]],
         ['note', 'The tail motion and speed dial fixes reach existing output when you run Update after updating the tool.', 'warn'],
-        ['h3', 'New in v1.5.1'],
-        ['p', 'Gesture poses can now move the left and right ears separately.'],
-        ['cards', [
-          ['Each ear on its own', 'Choose Separate L/R under Ear L/R Behavior to get a pad and a Turn dial for each ear. The pads are laid out as the avatar is seen from the front (like the Scene view) and titled with the ear bone names; drag a pad outward to open that ear.', 'ui_ear_separate.png'],
-        ]],
-        ['list', [
-          'Added Left ear only and Right ear only: one ear moves and the other stays where it is.',
-          'With the tail speed dial at 0%, the tail now eases back to its rest position and stops, instead of freezing mid-swing.',
-          'The tool UI is now available in Korean (한국어). Switch with KO at the top right.',
-        ]],
-        ['note', 'After updating the tool, run Update to apply the speed dial change to existing output.', 'warn'],
       ]},
       start: { id: 'start', nav: 'Getting started', title: 'Getting started', blocks: [
         ['note', 'Requirements: Unity 2022.3 LTS or later (Windows Unity Editor). Adding to FX, Gesture Link and the tail speed dial need the VRChat SDK3 Avatars; basic Animation Clips can be generated without it.'],
@@ -312,15 +333,16 @@ export const guides = {
       idle: { id: 'idle', nav: 'Idle Motion', title: 'Idle Motion', blocks: [
         ['h3', 'Motion style and strength'],
         ['chips', ['Calm', 'Natural', 'Lively', 'Sleepy', 'Nervous', 'Silly', 'Whimsical']],
-        ['p', 'Strength is Soft, Normal or Strong. Choosing a style sets the ear and tail details to that style\'s values. <strong>Whimsical</strong> adds long stillness broken by single, mostly one-ear twitches, and an off-centre tail swaying at an uneven tempo.'],
+        ['p', 'Strength is Soft, Normal or Strong. Choosing a style sets the ear and tail details to that style\'s values. If you change values by hand, the style row shows "adjusted"; Restore style brings the style\'s values back. <strong>Whimsical</strong> adds long stillness broken by single, mostly one-ear twitches, and an off-centre tail swaying at an uneven tempo.'],
         ['img', 'kimagure.jpg', 'Whimsical (きまぐれ)'],
         ['h3', 'Ears'],
         ['dl', [
           ['Ear L/R', 'Auto, Sync or Async. In Sync, Single-Ear Share sets how often only one ear twitches.'],
-          ['Motion types', 'By default the ears only twitch. Add Ear Swivel (turns slowly outward and holds) and Ear Shake (flings the ear like shaking off water). Each has a checkbox and a Frequency (%).'],
+          ['Motion types', 'By default the ears only twitch. Add Ear Swivel (turns slowly outward and holds), Ear Shake (flings the ear like shaking off water) and Listen (draws the ears up and holds for a moment). Each has a checkbox and a Frequency (%); the enabled moves share up to 100% and the rest are twitches.'],
         ]],
         ['h3', 'Tail'],
         ['dl', [
+          ['Bones', 'Use + Add Chain to add more chains (twin tails, ribbons and so on). Multiple Chains chooses Together, Mirrored L/R or Separate.'],
           ['Motion', 'Continuous or Intermittent.'],
           ['Amplitude and base speed', '1x is a 1.5-second cycle.'],
           ['Suppleness (%)', 'Higher values calm the base and send the swing to the tip as a wave. 0 keeps the previous motion.'],
@@ -372,7 +394,7 @@ export const guides = {
           ['Save location and update notice', 'Set under Idle Motion → FX & Save Location.'],
         ]],
         ['note', 'Unity\'s Undo cannot fully restore Animator Controller layers. Review the confirmation list shown before generating, and back up if needed.', 'warn'],
-        ['p', 'Uninstall: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code> removes the layers YuraMofu added to the FX.'],
+        ['p', 'Uninstall: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code> lists what will be removed and, after you confirm, removes the layers, parameters and menu item YuraMofu added.'],
       ]},
       faq: { id: 'faq', nav: 'FAQ', title: 'FAQ', blocks: [
         ['faq', [
@@ -388,6 +410,14 @@ export const guides = {
       ]},
       log: { id: 'log', nav: 'Changelog', title: 'Changelog', blocks: [
         ['log', [
+          ['1.5.3', '', [
+            'More than one tail chain (Together / Mirrored L/R / Separate)',
+            'Added Listen to the ear motions',
+            'Styles show "adjusted" with Restore style; new ear motion for Nervous',
+            'Bones are detected when an avatar is assigned',
+            'FaceEmo warning in the confirmation before Generate and Update',
+            'Uninstall confirms first and also removes the speed dial items',
+          ]],
           ['1.5.2', '2026-11-09', [
             'Warns when FaceEmo is applied with "Disable WD (Expression Priority)"',
             'Tail set to Sometimes: swings now die down naturally',
@@ -483,7 +513,7 @@ export const guides = {
       headline: '耳朵輕輕一抖，<br>尾巴悠悠一晃。',
       lead: 'ゆらもふ 是 Unity Editor 擴充工具，能用角色的耳朵與尾巴骨骼，做出待機動作和手勢連動動畫。先預覽確認再生成，還能自動把圖層加進 FX Controller。',
       start: '開始設定', booth: 'BOOTH 商品頁',
-      badge: '對應產品版 v1.5.2',
+      badge: '對應產品版 v1.5.3',
       imageAlt: 'ゆらもふ 主視覺',
     },
     pad: {
@@ -492,8 +522,23 @@ export const guides = {
       earCap: '耳朵：2D 盤決定倒的方向，轉盤決定朝內／朝外', tailCap: '尾巴：2D 盤決定倒的方向',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.2 新功能', title: 'v1.5.2 新功能', blocks: [
-        ['lead', '新增和 FaceEmo 併用時的提醒，並讓尾巴的動作更自然。'],
+      new: { id: 'new', nav: 'v1.5.3 新功能', title: 'v1.5.3 新功能', blocks: [
+        ['lead', '尾巴現在可以加上第 2 條以後的骨鏈，雙馬尾、圍裙緞帶等尾巴以外會擺動的部位也能一起動。'],
+        ['img', 'tail_chains.gif', '把圍裙左右兩條緞帶當成一組尾巴來動的例子（一致／左右對稱／各自擺動，畫面為日文介面）'],
+        ['cards', [
+          ['新增尾巴骨鏈', '在「骨骼與詳細調整」按「+ 新增骨鏈」加入第 2 條以後的骨鏈。強度、速度等設定所有骨鏈共用。有 2 條以上時，用「多條骨鏈的動作」選擇<strong>一致</strong>（往同一個方向擺）／<strong>左右對稱</strong>（和第 1 條鏡像）／<strong>各自擺動</strong>（各自的節奏）。', 'ui_tail_chains.png'],
+          ['耳朵「傾聽」', '偶爾把耳朵豎起，停一下再放鬆，像在專心聽某個聲音。和轉向、甩耳一樣，用行首的勾選框和「傾聽頻率（%）」設定。開啟的動作合計最多 100%，其餘為抖動。', 'ui_ear_listen.png'],
+        ]],
+        ['list', [
+          '選好風格後手動改了數值，風格旁會顯示「已調整」，按「恢復風格」可以回到風格的數值。改選其他風格時，會先確認是否覆蓋調整過的內容。',
+          '每種風格現在都會使用自己的節奏，「活躍度」以風格的節奏為基準調快或調慢。「緊張」改成耳朵豎起、左右輪流往外看的動作。',
+          '指定角色時會自動偵測骨骼。',
+          '生成、更新前的確認畫面也會顯示 FaceEmo 的 WriteDefaults 提醒。',
+          '解除安裝前會先列出要移除的內容並確認，也會一併移除尾巴速度轉盤（FX 參數、選單項目）和手勢中暫停待機用的 Animation Clip。',
+        ]],
+        ['note', '要套用到既有的輸出，請在更新工具後按「更新」。', 'warn'],
+        ['h3', 'v1.5.2 新功能'],
+        ['p', '新增和 FaceEmo 併用時的提醒，並讓尾巴的動作更自然。'],
         ['list', [
           'FaceEmo 以「WriteDefaults オフ（表情優先）」套用時，工具畫面會顯示警告。這會讓耳朵和尾巴陷進去或扭轉。看到警告時，請在 FaceEmo 改選「WriteDefaults 統一（ギミック優先）」，再按一次「アバターに適用」。',
           '如果 FX 本身有 WriteDefaults 關閉的狀態、只改 FaceEmo 的設定也無法解決，也會顯示說明。',
@@ -501,17 +546,6 @@ export const guides = {
           '修正在沒有設定 Expressions Menu・Parameters（維持 VRChat 預設）的角色加上速度轉盤時，VRCEmote 和表情用參數會消失的問題。',
         ]],
         ['note', '尾巴動作和速度轉盤的修正，更新工具後按「更新」就會套用到既有的輸出。', 'warn'],
-        ['h3', 'v1.5.1 新功能'],
-        ['p', '手勢連動的姿勢現在可以讓左右耳朵分開動。'],
-        ['cards', [
-          ['左右耳朵分開設定', '在「左右耳行為」選「左右分開」，每隻耳朵會各有一個 2D 盤和「轉向」轉盤。排列方式是從正面看角色的位置（和 Scene 視窗同方向），盤子上方會顯示耳朵的骨頭名稱；把 2D 盤往外拖，耳朵就會打開。', 'ui_ear_separate.png'],
-        ]],
-        ['list', [
-          '新增「只有左耳」「只有右耳」：只動一隻耳朵，另一隻維持原位。',
-          '尾巴速度轉盤轉到 0% 時，尾巴會慢慢回到原本的位置停下，不會卡在擺到一半的角度。',
-          '工具介面支援韓文（한국어），在右上角按「KO」切換。',
-        ]],
-        ['note', '速度轉盤的變更，更新工具後按「更新」才會套用到既有的輸出。', 'warn'],
       ]},
       start: { id: 'start', nav: '開始使用', title: '開始使用', blocks: [
         ['note', '環境需求：Unity 2022.3 LTS 以上（Windows 版 Unity Editor）。自動加入 FX、手勢連動與尾巴速度轉盤需要 VRChat SDK3 Avatars；沒有 SDK 也能生成基本的 Animation Clip。'],
@@ -527,15 +561,16 @@ export const guides = {
       idle: { id: 'idle', nav: '待機擺動', title: '待機擺動', blocks: [
         ['h3', '動作風格與強度'],
         ['chips', ['安靜', '自然', '活潑', '想睡', '緊張', '俏皮', '隨性']],
-        ['p', '強度有「弱／普通／強」。選擇風格時，耳朵和尾巴的細部設定會套用該風格的數值。<strong>隨性</strong>是在長時間靜止之間，夾雜單耳短促的抖動，以及中心偏向一側、快慢不一的尾巴擺動。'],
+        ['p', '強度有「弱／普通／強」。選擇風格時，耳朵和尾巴的細部設定會套用該風格的數值。手動改了數值時會顯示「已調整」，按「恢復風格」可以回到風格的數值。<strong>隨性</strong>是在長時間靜止之間，夾雜單耳短促的抖動，以及中心偏向一側、快慢不一的尾巴擺動。'],
         ['img', 'kimagure.jpg', '隨性（きまぐれ）'],
         ['h3', '耳朵'],
         ['dl', [
           ['左右耳', '自動／同步／非同步。同步時可用「單耳動作比例」設定只有一邊耳朵抖動的機率。'],
-          ['動作種類', '預設只有抖動，可以再加上「耳朵轉向」（慢慢朝外轉後停住）和「甩耳」（像甩掉水一樣甩動）。用行首的勾選框開關，「頻率（%）」決定比例。'],
+          ['動作種類', '預設只有抖動，可以再加上「耳朵轉向」（慢慢朝外轉後停住）、「甩耳」（像甩掉水一樣甩動）和「傾聽」（豎起耳朵停一下）。用行首的勾選框開關，「頻率（%）」決定比例。開啟的動作合計最多 100%，其餘為抖動。'],
         ]],
         ['h3', '尾巴'],
         ['dl', [
+          ['骨骼', '用「+ 新增骨鏈」加入第 2 條以後的骨鏈（雙馬尾、緞帶等），在「多條骨鏈的動作」選擇一致／左右對稱／各自擺動。'],
           ['動作', '連續擺動／間歇擺動。'],
           ['幅度與基本速度', '1 倍是一個週期 1.5 秒。'],
           ['柔軟度（%）', '數值越高，根部越穩，擺動像波一樣傳到尾端。0 為原本的動作。'],
@@ -587,7 +622,7 @@ export const guides = {
           ['儲存位置與更新通知', '在「待機擺動」→「FX 與儲存位置」設定。'],
         ]],
         ['note', 'Unity 的 Undo 無法完整還原 Animator Controller 的圖層。請先看過生成前顯示的確認清單，必要時先備份。', 'warn'],
-        ['p', '解除安裝：執行 <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>，即可從 FX 移除ゆらもふ加入的圖層。'],
+        ['p', '解除安裝：執行 <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code> 會先列出要移除的內容，確認後移除ゆらもふ加入的圖層、參數和選單項目。'],
       ]},
       faq: { id: 'faq', nav: '常見問題', title: '常見問題', blocks: [
         ['faq', [
@@ -603,6 +638,14 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '更新紀錄', title: '更新紀錄', blocks: [
         ['log', [
+          ['1.5.3', '', [
+            '尾巴可以加入第 2 條以後的骨鏈（一致／左右對稱／各自擺動）',
+            '耳朵動作新增「傾聽」',
+            '風格顯示「已調整」並可「恢復風格」；「緊張」的耳朵動作改變',
+            '指定角色時自動偵測骨骼',
+            '生成、更新前的確認畫面顯示 FaceEmo 提醒',
+            '解除安裝前先確認，並一併移除速度轉盤相關項目',
+          ]],
           ['1.5.2', '2026-11-09', [
             'FaceEmo 以「WriteDefaults オフ（表情優先）」套用時顯示警告',
             '尾巴動作「偶爾」的擺動會越來越小、自然停下',
@@ -698,7 +741,7 @@ export const guides = {
       headline: '귀는 쫑긋,<br>꼬리는 살랑.',
       lead: '유라모후는 아바타의 귀・꼬리 본으로 대기 모션과 제스처 연동 애니메이션을 만드는 Unity 에디터 확장입니다. 프리뷰로 확인한 뒤 생성하며, FX Controller에 레이어를 추가하는 작업까지 자동으로 할 수 있습니다.',
       start: '처음 설정하기', booth: 'BOOTH 상품 페이지',
-      badge: '풀 버전 v1.5.2 기준',
+      badge: '풀 버전 v1.5.3 기준',
       imageAlt: '유라모후 메인 이미지',
     },
     pad: {
@@ -707,8 +750,23 @@ export const guides = {
       earCap: '귀: 패드로 기울일 방향, 다이얼로 안쪽/바깥쪽 방향', tailCap: '꼬리: 패드로 기울일 방향',
     },
     sections: {
-      new: { id: 'new', nav: 'v1.5.2 새 기능', title: 'v1.5.2 새 기능', blocks: [
-        ['lead', 'FaceEmo와 함께 쓸 때의 경고를 추가하고, 꼬리 움직임을 더 자연스럽게 했습니다.'],
+      new: { id: 'new', nav: 'v1.5.3 새 기능', title: 'v1.5.3 새 기능', blocks: [
+        ['lead', '꼬리에 두 번째 이후의 본 체인을 추가할 수 있게 되었습니다. 트윈테일이나 앞치마 리본 등 꼬리가 아닌 흔들리는 부분도 함께 움직일 수 있습니다.'],
+        ['img', 'tail_chains.gif', '앞치마 좌우 리본을 꼬리 한 세트로 움직인 예(함께 / 좌우 대칭 / 따로, 화면은 일본어)'],
+        ['cards', [
+          ['꼬리 본 추가', '「본・세부 조정」의 「+ 체인 추가」로 두 번째 이후의 체인을 추가합니다. 강도・속도 등의 설정은 모든 체인이 공유합니다. 두 개 이상일 때는 「여러 체인의 움직임」에서 <strong>함께</strong>(같은 방향으로 흔들림) / <strong>좌우 대칭</strong>(첫 번째 체인과 거울처럼) / <strong>따로</strong>(각자의 타이밍)를 고릅니다.', 'ui_tail_chains.png'],
+          ['귀 기울이기', '가끔 귀를 세우고 잠시 멈췄다가 돌아옵니다. 무언가에 귀를 기울이는 듯한 움직임입니다. 방향 바꾸기・털기와 마찬가지로 앞의 체크와 「귀 기울이기 빈도 (%)」로 설정합니다. 켠 움직임의 합계는 100%까지이며, 나머지는 쫑긋하는 움직임이 됩니다.', 'ui_ear_listen.png'],
+        ]],
+        ['list', [
+          '스타일을 고른 뒤 값을 직접 바꾸면 스타일 옆에 「조정됨」이 표시되고, 「스타일로 복원」으로 스타일 값으로 되돌릴 수 있습니다. 다른 스타일을 고를 때는 조정한 내용을 덮어써도 되는지 확인합니다.',
+          '각 스타일 고유의 리듬이 항상 적용되며, 「활발함」은 그 리듬을 기준으로 빠르게 또는 느리게 합니다. 「안절부절」은 귀를 세우고 좌우 번갈아 바깥쪽을 보는 움직임이 되었습니다.',
+          '아바타를 지정하면 본을 자동으로 감지합니다.',
+          '생성・업데이트 전 확인 화면에도 FaceEmo의 WriteDefaults 주의 사항을 표시합니다.',
+          '제거하기 전에 삭제할 항목 목록을 확인할 수 있습니다. 꼬리 속도 다이얼(FX 파라미터・메뉴 항목)과 제스처 중 대기 모션 정지용 Animation Clip도 함께 삭제합니다.',
+        ]],
+        ['note', '기존 출력에 반영하려면 툴을 업데이트한 뒤 「업데이트」를 실행해 주세요.', 'warn'],
+        ['h3', 'v1.5.2 새 기능'],
+        ['p', 'FaceEmo와 함께 쓸 때의 경고를 추가하고, 꼬리 움직임을 더 자연스럽게 했습니다.'],
         ['list', [
           'FaceEmo가 「WriteDefaults オフ（表情優先）」로 적용되어 있으면 툴 화면에 경고가 표시됩니다. 귀・꼬리가 파묻히거나 뒤틀리는 원인이 됩니다. 경고가 나오면 FaceEmo에서 「WriteDefaults 統一（ギミック優先）」을 선택하고 「アバターに適用」을 다시 실행해 주세요.',
           'FX 자체에 WriteDefaults가 꺼진 스테이트가 있어서 FaceEmo 설정만으로는 고쳐지지 않는 경우에도 안내를 표시합니다.',
@@ -716,17 +774,6 @@ export const guides = {
           'Expressions Menu・Parameters를 설정하지 않은(VRChat 기본 그대로인) 아바타에 속도 다이얼을 추가하면 VRCEmote와 표정용 파라미터가 사라지는 문제를 수정했습니다.',
         ]],
         ['note', '꼬리 움직임과 속도 다이얼 수정은 툴을 업데이트한 뒤 「업데이트」를 실행하면 기존 출력에 반영됩니다.', 'warn'],
-        ['h3', 'v1.5.1 새 기능'],
-        ['p', '제스처 연동 포즈에서 왼쪽 귀와 오른쪽 귀를 따로 움직일 수 있게 되었습니다.'],
-        ['cards', [
-          ['좌우 귀를 따로', '「귀 좌우 동작」에서 「좌우 따로」를 고르면 귀마다 패드와 「방향」 다이얼이 나타납니다. 아바터를 정면에서 본 배치(Scene 뷰와 같은 방향)이며, 패드 위에 귀 본 이름이 표시됩니다. 패드를 바깥쪽으로 움직이면 귀가 열립니다.', 'ui_ear_separate.png'],
-        ]],
-        ['list', [
-          '「왼쪽 귀만」「오른쪽 귀만」 추가: 한쪽 귀만 움직이고 다른 쪽은 원래 위치에 둡니다.',
-          '꼬리 속도 다이얼을 0%로 하면 꼬리가 중간 각도에서 굳지 않고, 원래 위치로 돌아가서 멈춥니다.',
-          '툴 화면이 한국어를 지원합니다. 오른쪽 위의 「KO」로 바꿀 수 있습니다.',
-        ]],
-        ['note', '속도 다이얼 변경은 툴을 업데이트한 뒤 「업데이트」를 실행하면 기존 출력에 반영됩니다.', 'warn'],
       ]},
       start: { id: 'start', nav: '시작하기', title: '시작하기', blocks: [
         ['note', '툴 화면은 오른쪽 위의 「KO」로 한국어로 바꿀 수 있습니다(v1.5.1 이후). 이 가이드의 스크린샷은 일본어 화면입니다.'],
@@ -743,15 +790,16 @@ export const guides = {
       idle: { id: 'idle', nav: '대기 모션', title: '대기 모션', blocks: [
         ['h3', '모션 스타일과 강도'],
         ['chips', ['얌전하게', '자연스럽게', '활발하게', '졸린 듯', '안절부절', '장난스럽게', '변덕스럽게']],
-        ['p', '강도는 「약하게 / 보통 / 강하게」 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. <strong>변덕스럽게</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.'],
+        ['p', '강도는 「약하게 / 보통 / 강하게」 중에서 고릅니다. 스타일을 고르면 귀・꼬리의 세부 설정이 그 스타일의 값으로 바뀝니다. 값을 직접 바꾸면 「조정됨」이 표시되며, 「스타일로 복원」으로 되돌릴 수 있습니다. <strong>변덕스럽게</strong>은 오래 가만히 있다가 가끔 한쪽 귀만 짧게 쫑긋하고, 꼬리는 한쪽으로 치우친 채 완급을 주며 흔들리는 스타일입니다.'],
         ['img', 'kimagure.jpg', '변덕스럽게 (きまぐれ)'],
         ['h3', '귀'],
         ['dl', [
           ['귀 좌우', '자동 / 동기 / 비동기. 동기일 때는 「한쪽 귀만 움직이는 비율」로 한쪽 귀만 쫑긋할 확률을 정할 수 있습니다.'],
-          ['움직임 종류', '기본은 쫑긋하는 움직임뿐이지만, 「귀 방향 바꾸기」(천천히 바깥쪽으로 돌아가서 멈춤)과 「귀 털기」(물기를 털듯이 흔듦)를 추가할 수 있습니다. 앞의 체크로 ON/OFF, 「빈도 (%)」로 비율을 정합니다.'],
+          ['움직임 종류', '기본은 쫑긋하는 움직임뿐이지만, 「귀 방향 바꾸기」(천천히 바깥쪽으로 돌아가서 멈춤), 「귀 털기」(물기를 털듯이 흔듦), 「귀 기울이기」(귀를 세우고 잠시 멈춤)를 추가할 수 있습니다. 앞의 체크로 ON/OFF, 「빈도 (%)」로 비율을 정합니다. 켠 움직임의 합계는 100%까지이며, 나머지는 쫑긋하는 움직임이 됩니다.'],
         ]],
         ['h3', '꼬리'],
         ['dl', [
+          ['본', '「+ 체인 추가」로 두 번째 이후의 본 체인(트윈테일・리본 등)을 추가할 수 있습니다. 「여러 체인의 움직임」에서 함께 / 좌우 대칭 / 따로를 고릅니다.'],
           ['움직임 모드', '연속 진자 / 간헐 흔들기.'],
           ['진폭・기본 속도', '1배는 한 주기 1.5초입니다.'],
           ['유연함 (%)', '올릴수록 뿌리 쪽은 차분해지고, 흔들림이 물결처럼 끝으로 전해집니다. 0이면 기존과 같습니다.'],
@@ -803,7 +851,7 @@ export const guides = {
           ['저장 위치・업데이트 알림', '「대기 모션」 → 「FX・저장 위치」에서 설정합니다.'],
         ]],
         ['note', 'Unity의 Undo로는 Animator Controller의 레이어를 완전히 되돌릴 수 없습니다. 생성 전에 표시되는 확인 목록을 보고 실행하고, 필요하면 백업해 두세요.', 'warn'],
-        ['p', '제거: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>로 유라모후가 추가한 레이어를 FX에서 삭제할 수 있습니다.'],
+        ['p', '제거: <code>黒猫Dev → YuraMofu (ゆらもふ) → Uninstall from Active Avatar</code>를 실행하면 삭제할 항목 목록이 표시되고, 확인 후 유라모후가 추가한 레이어・파라미터・메뉴 항목을 삭제합니다.'],
       ]},
       faq: { id: 'faq', nav: '자주 묻는 질문', title: '자주 묻는 질문', blocks: [
         ['faq', [
@@ -819,6 +867,14 @@ export const guides = {
       ]},
       log: { id: 'log', nav: '업데이트 기록', title: '업데이트 기록', blocks: [
         ['log', [
+          ['1.5.3', '', [
+            '꼬리에 두 번째 이후의 본 체인 추가(함께 / 좌우 대칭 / 따로)',
+            '귀 움직임에 「귀 기울이기」 추가',
+            '스타일 「조정됨」 표시와 「스타일로 복원」 추가, 「안절부절」의 귀 움직임 변경',
+            '아바타 지정 시 본 자동 감지',
+            '생성・업데이트 전 확인 화면에 FaceEmo 주의 사항 표시',
+            '제거 전에 확인하고, 속도 다이얼 항목도 함께 삭제',
+          ]],
           ['1.5.2', '2026-11-09', [
             'FaceEmo가 「WriteDefaults オフ（表情優先）」로 적용되어 있을 때 경고 표시',
             '꼬리 움직임 「가끔」의 흔들림이 점점 작아지며 자연스럽게 멈추도록',
